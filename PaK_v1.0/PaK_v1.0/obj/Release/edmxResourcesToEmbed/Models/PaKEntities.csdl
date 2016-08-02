@@ -1,0 +1,731 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PaKModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="PaKEntities" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="acct_status" EntityType="PaKModel.acct_status" />
+    <EntitySet Name="booking_types" EntityType="PaKModel.booking_types" />
+    <EntitySet Name="c_pers_data_svc" EntityType="PaKModel.c_pers_data_svc" />
+    <EntitySet Name="nations" EntityType="PaKModel.nations" />
+    <EntitySet Name="pers_svc" EntityType="PaKModel.pers_svc" />
+    <EntitySet Name="rental_tariff_arch" EntityType="PaKModel.rental_tariff_arch" />
+    <EntitySet Name="room_types" EntityType="PaKModel.room_types" />
+    <EntitySet Name="rooms" EntityType="PaKModel.rooms" />
+    <AssociationSet Name="FK_c_pers_data_svc_pers_svc" Association="PaKModel.FK_c_pers_data_svc_pers_svc">
+      <End Role="pers_svc" EntitySet="pers_svc" />
+      <End Role="c_pers_data_svc" EntitySet="c_pers_data_svc" />
+    </AssociationSet>
+    <AssociationSet Name="FK_rooms_room_types" Association="PaKModel.FK_rooms_room_types">
+      <End Role="room_types" EntitySet="room_types" />
+      <End Role="rooms" EntitySet="rooms" />
+    </AssociationSet>
+    <EntitySet Name="clearances" EntityType="PaKModel.clearances" />
+    <EntitySet Name="pers_data" EntityType="PaKModel.pers_data" />
+    <EntitySet Name="settings" EntityType="PaKModel.settings" />
+    <EntitySet Name="daily_run" EntityType="PaKModel.daily_run" />
+    <EntitySet Name="users" EntityType="PaKModel.users" />
+    <AssociationSet Name="FK_clearances_users" Association="PaKModel.FK_clearances_users">
+      <End Role="users" EntitySet="users" />
+      <End Role="clearances" EntitySet="clearances" />
+    </AssociationSet>
+    <EntitySet Name="roles" EntityType="PaKModel.roles" />
+    <EntitySet Name="wpf_views" EntityType="PaKModel.wpf_views" />
+    <AssociationSet Name="FK_users_roles" Association="PaKModel.FK_users_roles">
+      <End Role="roles" EntitySet="roles" />
+      <End Role="users" EntitySet="users" />
+    </AssociationSet>
+    <AssociationSet Name="view_role" Association="PaKModel.view_role">
+      <End Role="roles" EntitySet="roles" />
+      <End Role="wpf_views" EntitySet="wpf_views" />
+    </AssociationSet>
+    <EntitySet Name="room_occupancy" EntityType="PaKModel.room_occupancy" />
+    <EntitySet Name="accounts" EntityType="PaKModel.accounts" />
+    <EntitySet Name="rental_tariffs" EntityType="PaKModel.rental_tariffs" />
+    <AssociationSet Name="FK_accounts_acct_status" Association="PaKModel.FK_accounts_acct_status">
+      <End Role="acct_status" EntitySet="acct_status" />
+      <End Role="accounts" EntitySet="accounts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_accounts_nations" Association="PaKModel.FK_accounts_nations">
+      <End Role="nations" EntitySet="nations" />
+      <End Role="accounts" EntitySet="accounts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_accounts_rental_tariffs" Association="PaKModel.FK_accounts_rental_tariffs">
+      <End Role="rental_tariffs" EntitySet="rental_tariffs" />
+      <End Role="accounts" EntitySet="accounts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_accounts_rooms" Association="PaKModel.FK_accounts_rooms">
+      <End Role="rooms" EntitySet="rooms" />
+      <End Role="accounts" EntitySet="accounts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_pers_data_accounts" Association="PaKModel.FK_pers_data_accounts">
+      <End Role="accounts" EntitySet="accounts" />
+      <End Role="pers_data" EntitySet="pers_data" />
+    </AssociationSet>
+    <AssociationSet Name="FK_rental_tariff_arch_rental_tariffs" Association="PaKModel.FK_rental_tariff_arch_rental_tariffs">
+      <End Role="rental_tariffs" EntitySet="rental_tariffs" />
+      <End Role="rental_tariff_arch" EntitySet="rental_tariff_arch" />
+    </AssociationSet>
+    <EntitySet Name="articles" EntityType="PaKModel.articles" />
+    <EntitySet Name="c_art_pricetype" EntityType="PaKModel.c_art_pricetype" />
+    <EntitySet Name="price_type" EntityType="PaKModel.price_type" />
+    <EntitySet Name="prod_grp" EntityType="PaKModel.prod_grp" />
+    <AssociationSet Name="FK_articles_prod_grp" Association="PaKModel.FK_articles_prod_grp">
+      <End Role="prod_grp" EntitySet="prod_grp" />
+      <End Role="articles" EntitySet="articles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_c_art_pricetype_articles" Association="PaKModel.FK_c_art_pricetype_articles">
+      <End Role="articles" EntitySet="articles" />
+      <End Role="c_art_pricetype" EntitySet="c_art_pricetype" />
+    </AssociationSet>
+    <AssociationSet Name="FK_c_art_pricetype_price_type" Association="PaKModel.FK_c_art_pricetype_price_type">
+      <End Role="price_type" EntitySet="price_type" />
+      <End Role="c_art_pricetype" EntitySet="c_art_pricetype" />
+    </AssociationSet>
+    <EntitySet Name="block_list" EntityType="PaKModel.block_list" />
+    <EntitySet Name="bookings" EntityType="PaKModel.bookings" />
+    <EntitySet Name="acct_bookings" EntityType="PaKModel.acct_bookings" />
+    <AssociationSet Name="FK_bookings_accounts" Association="PaKModel.FK_bookings_accounts">
+      <End Role="accounts" EntitySet="accounts" />
+      <End Role="bookings" EntitySet="bookings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_bookings_articles" Association="PaKModel.FK_bookings_articles">
+      <End Role="articles" EntitySet="articles" />
+      <End Role="bookings" EntitySet="bookings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_bookings_booking_types" Association="PaKModel.FK_bookings_booking_types">
+      <End Role="booking_types" EntitySet="booking_types" />
+      <End Role="bookings" EntitySet="bookings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_bookings_clearances" Association="PaKModel.FK_bookings_clearances">
+      <End Role="clearances" EntitySet="clearances" />
+      <End Role="bookings" EntitySet="bookings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_bookings_daily_run" Association="PaKModel.FK_bookings_daily_run">
+      <End Role="daily_run" EntitySet="daily_run" />
+      <End Role="bookings" EntitySet="bookings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_bookings_rental_tariffs" Association="PaKModel.FK_bookings_rental_tariffs">
+      <End Role="rental_tariffs" EntitySet="rental_tariffs" />
+      <End Role="bookings" EntitySet="bookings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_bookings_rooms" Association="PaKModel.FK_bookings_rooms">
+      <End Role="rooms" EntitySet="rooms" />
+      <End Role="bookings" EntitySet="bookings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_bookings_users" Association="PaKModel.FK_bookings_users">
+      <End Role="users" EntitySet="users" />
+      <End Role="bookings" EntitySet="bookings" />
+    </AssociationSet>
+    <EntitySet Name="birthdays" EntityType="PaKModel.birthdays" />
+    <EntitySet Name="revenues" EntityType="PaKModel.revenues" />
+  </EntityContainer>
+  <EntityType Name="acct_status">
+    <Key>
+      <PropertyRef Name="ast_id" />
+    </Key>
+    <Property Type="Int32" Name="ast_id" Nullable="false" />
+    <Property Type="String" Name="ast_name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="ast_key" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="accounts" Relationship="PaKModel.FK_accounts_acct_status" FromRole="acct_status" ToRole="accounts" />
+  </EntityType>
+  <EntityType Name="booking_types">
+    <Key>
+      <PropertyRef Name="btp_id" />
+    </Key>
+    <Property Type="Int32" Name="btp_id" Nullable="false" />
+    <Property Type="String" Name="btp_name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="btp_key" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="bookings" Relationship="PaKModel.FK_bookings_booking_types" FromRole="booking_types" ToRole="bookings" />
+  </EntityType>
+  <EntityType Name="c_pers_data_svc">
+    <Key>
+      <PropertyRef Name="pds_id" />
+    </Key>
+    <Property Type="Int32" Name="pds_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="svc_id" Nullable="false" />
+    <Property Type="Int32" Name="act_id" Nullable="false" />
+    <NavigationProperty Name="pers_svc" Relationship="PaKModel.FK_c_pers_data_svc_pers_svc" FromRole="c_pers_data_svc" ToRole="pers_svc" />
+  </EntityType>
+  <EntityType Name="nations">
+    <Key>
+      <PropertyRef Name="nation_id" />
+    </Key>
+    <Property Type="Int32" Name="nation_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="nation" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="iso_2" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="iso_3" MaxLength="3" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="accounts" Relationship="PaKModel.FK_accounts_nations" FromRole="nations" ToRole="accounts" />
+  </EntityType>
+  <EntityType Name="pers_svc">
+    <Key>
+      <PropertyRef Name="svc_id" />
+    </Key>
+    <Property Type="Int32" Name="svc_id" Nullable="false" />
+    <Property Type="String" Name="svc_name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="c_pers_data_svc" Relationship="PaKModel.FK_c_pers_data_svc_pers_svc" FromRole="pers_svc" ToRole="c_pers_data_svc" />
+  </EntityType>
+  <EntityType Name="rental_tariff_arch">
+    <Key>
+      <PropertyRef Name="rta_id" />
+    </Key>
+    <Property Type="Int32" Name="rta_id" Nullable="false" />
+    <Property Type="Int32" Name="tariff_id" Nullable="false" />
+    <Property Type="Decimal" Name="rta_amount" Nullable="false" Precision="6" Scale="2" />
+    <Property Type="DateTime" Name="rta_timestamp" Nullable="false" Precision="3" />
+    <NavigationProperty Name="rental_tariffs" Relationship="PaKModel.FK_rental_tariff_arch_rental_tariffs" FromRole="rental_tariff_arch" ToRole="rental_tariffs" />
+  </EntityType>
+  <EntityType Name="room_types">
+    <Key>
+      <PropertyRef Name="roomtype_id" />
+    </Key>
+    <Property Type="Int32" Name="roomtype_id" Nullable="false" />
+    <Property Type="String" Name="type_name" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="type_key" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="rooms" Relationship="PaKModel.FK_rooms_room_types" FromRole="room_types" ToRole="rooms" />
+  </EntityType>
+  <EntityType Name="rooms">
+    <Key>
+      <PropertyRef Name="room_id" />
+    </Key>
+    <Property Type="Int32" Name="room_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="room_number" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="roomtype_id" Nullable="false" />
+    <Property Type="Boolean" Name="room_status" Nullable="false" />
+    <NavigationProperty Name="room_types" Relationship="PaKModel.FK_rooms_room_types" FromRole="rooms" ToRole="room_types" />
+    <NavigationProperty Name="accounts" Relationship="PaKModel.FK_accounts_rooms" FromRole="rooms" ToRole="accounts" />
+    <NavigationProperty Name="bookings" Relationship="PaKModel.FK_bookings_rooms" FromRole="rooms" ToRole="bookings" />
+  </EntityType>
+  <Association Name="FK_c_pers_data_svc_pers_svc">
+    <End Type="PaKModel.pers_svc" Role="pers_svc" Multiplicity="1" />
+    <End Type="PaKModel.c_pers_data_svc" Role="c_pers_data_svc" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="pers_svc">
+        <PropertyRef Name="svc_id" />
+      </Principal>
+      <Dependent Role="c_pers_data_svc">
+        <PropertyRef Name="svc_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_rooms_room_types">
+    <End Type="PaKModel.room_types" Role="room_types" Multiplicity="1" />
+    <End Type="PaKModel.rooms" Role="rooms" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="room_types">
+        <PropertyRef Name="roomtype_id" />
+      </Principal>
+      <Dependent Role="rooms">
+        <PropertyRef Name="roomtype_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="clearances">
+    <Key>
+      <PropertyRef Name="clr_id" />
+    </Key>
+    <Property Type="Int32" Name="clr_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="DateTime" Name="clr_date" Nullable="false" Precision="3" />
+    <Property Type="Int32" Name="usr_id" Nullable="false" />
+    <Property Type="Int32" Name="station_id" Nullable="false" />
+    <Property Type="Decimal" Name="clr_sum" Nullable="false" Precision="6" Scale="2" />
+    <NavigationProperty Name="users" Relationship="PaKModel.FK_clearances_users" FromRole="clearances" ToRole="users" />
+    <NavigationProperty Name="bookings" Relationship="PaKModel.FK_bookings_clearances" FromRole="clearances" ToRole="bookings" />
+  </EntityType>
+  <EntityType Name="pers_data">
+    <Key>
+      <PropertyRef Name="act_id" />
+    </Key>
+    <Property Type="Int32" Name="act_id" Nullable="false" />
+    <Property Type="String" Name="pdt_height" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="pdt_weight" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="pdt_hair_color" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="pdt_body_color" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="pdt_bust_size" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="Boolean" Name="pdt_tattoo" Nullable="false" />
+    <Property Type="Boolean" Name="pdt_piercing" Nullable="false" />
+    <Property Type="Boolean" Name="pdt_shaved" Nullable="false" />
+    <Property Type="String" Name="pdt_reference" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Boolean" Name="pdt_experience" Nullable="false" />
+    <Property Type="Boolean" Name="pdt_regular_customers" Nullable="false" />
+    <Property Type="String" Name="pdt_spec_services" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Type="Boolean" Name="pdt_duedo_tax" Nullable="false" />
+    <NavigationProperty Name="accounts" Relationship="PaKModel.FK_pers_data_accounts" FromRole="pers_data" ToRole="accounts" />
+  </EntityType>
+  <EntityType Name="settings">
+    <Key>
+      <PropertyRef Name="set_id" />
+    </Key>
+    <Property Type="Int32" Name="set_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="set_key" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="set_value" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="daily_run">
+    <Key>
+      <PropertyRef Name="day_id" />
+    </Key>
+    <Property Type="Int32" Name="day_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="DateTime" Name="day" Nullable="false" Precision="0" />
+    <Property Type="DateTime" Name="start_time" Precision="3" />
+    <Property Type="DateTime" Name="end_time" Precision="3" />
+    <NavigationProperty Name="bookings" Relationship="PaKModel.FK_bookings_daily_run" FromRole="daily_run" ToRole="bookings" />
+  </EntityType>
+  <EntityType Name="users">
+    <Key>
+      <PropertyRef Name="usr_id" />
+    </Key>
+    <Property Type="Int32" Name="usr_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="role_id" Nullable="false" />
+    <Property Type="String" Name="usr_name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="usr_passwd" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="usr_lastname" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="usr_firstname" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="usr_phone" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="usr_mobilephone" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="clearances" Relationship="PaKModel.FK_clearances_users" FromRole="users" ToRole="clearances" />
+    <NavigationProperty Name="roles" Relationship="PaKModel.FK_users_roles" FromRole="users" ToRole="roles" />
+    <NavigationProperty Name="bookings" Relationship="PaKModel.FK_bookings_users" FromRole="users" ToRole="bookings" />
+    <Property Type="String" Name="theme" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="fontsize" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="color" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <Association Name="FK_clearances_users">
+    <End Type="PaKModel.users" Role="users" Multiplicity="1" />
+    <End Type="PaKModel.clearances" Role="clearances" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="usr_id" />
+      </Principal>
+      <Dependent Role="clearances">
+        <PropertyRef Name="usr_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="roles">
+    <Key>
+      <PropertyRef Name="role_id" />
+    </Key>
+    <Property Type="Int32" Name="role_id" Nullable="false" />
+    <Property Type="String" Name="role_name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="role_key" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="users" Relationship="PaKModel.FK_users_roles" FromRole="roles" ToRole="users" />
+    <NavigationProperty Name="wpf_views" Relationship="PaKModel.view_role" FromRole="roles" ToRole="wpf_views" />
+  </EntityType>
+  <EntityType Name="wpf_views">
+    <Key>
+      <PropertyRef Name="view_id" />
+    </Key>
+    <Property Type="Int32" Name="view_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="view_name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="view_path" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="view_desc" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="roles" Relationship="PaKModel.view_role" FromRole="wpf_views" ToRole="roles" />
+  </EntityType>
+  <Association Name="FK_users_roles">
+    <End Type="PaKModel.roles" Role="roles" Multiplicity="1" />
+    <End Type="PaKModel.users" Role="users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="roles">
+        <PropertyRef Name="role_id" />
+      </Principal>
+      <Dependent Role="users">
+        <PropertyRef Name="role_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="view_role">
+    <End Type="PaKModel.roles" Role="roles" Multiplicity="*" />
+    <End Type="PaKModel.wpf_views" Role="wpf_views" Multiplicity="*" />
+  </Association>
+  <EntityType Name="room_occupancy">
+    <Key>
+      <PropertyRef Name="room_number" />
+      <PropertyRef Name="account_id" />
+      <PropertyRef Name="pseudonym" />
+      <PropertyRef Name="notes" />
+      <PropertyRef Name="tariff" />
+    </Key>
+    <Property Type="String" Name="room_number" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="account_id" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="pseudonym" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="notes" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="tariff" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="accounts">
+    <Key>
+      <PropertyRef Name="act_id" />
+    </Key>
+    <Property Type="Int32" Name="act_id" Nullable="false" />
+    <Property Type="String" Name="act_lastname" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="act_firstname" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="act_pseudonym" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="nation_id" />
+    <Property Type="DateTime" Name="act_birthday" Precision="0" />
+    <Property Type="String" Name="act_birthplace" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="act_passport_id" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="act_address" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="act_zip" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="act_city" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="ast_id" />
+    <Property Type="Int32" Name="room_id" />
+    <Property Type="Decimal" Name="act_deposit" Nullable="false" Precision="6" Scale="2" />
+    <Property Type="Int32" Name="tariff_id" Nullable="false" />
+    <Property Type="Boolean" Name="act_active" Nullable="false" />
+    <Property Type="String" Name="act_phone" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="act_email" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="act_notes" MaxLength="5000" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="act_balance" Precision="6" Scale="2" />
+    <Property Type="Boolean" Name="act_gender" />
+    <NavigationProperty Name="acct_status" Relationship="PaKModel.FK_accounts_acct_status" FromRole="accounts" ToRole="acct_status" />
+    <NavigationProperty Name="nations" Relationship="PaKModel.FK_accounts_nations" FromRole="accounts" ToRole="nations" />
+    <NavigationProperty Name="rental_tariffs" Relationship="PaKModel.FK_accounts_rental_tariffs" FromRole="accounts" ToRole="rental_tariffs" />
+    <NavigationProperty Name="rooms" Relationship="PaKModel.FK_accounts_rooms" FromRole="accounts" ToRole="rooms" />
+    <NavigationProperty Name="pers_data" Relationship="PaKModel.FK_pers_data_accounts" FromRole="accounts" ToRole="pers_data" />
+    <NavigationProperty Name="bookings" Relationship="PaKModel.FK_bookings_accounts" FromRole="accounts" ToRole="bookings" />
+  </EntityType>
+  <EntityType Name="rental_tariffs">
+    <Key>
+      <PropertyRef Name="tariff_id" />
+    </Key>
+    <Property Type="Int32" Name="tariff_id" Nullable="false" />
+    <Property Type="String" Name="tar_name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="tar_amount" Nullable="false" Precision="6" Scale="2" />
+    <Property Type="DateTime" Name="tar_crea_date" Precision="3" />
+    <Property Type="DateTime" Name="tar_mod_date" Precision="3" />
+    <Property Type="Boolean" Name="tar_tax" Nullable="false" />
+    <Property Type="Int32" Name="tar_order" />
+    <NavigationProperty Name="accounts" Relationship="PaKModel.FK_accounts_rental_tariffs" FromRole="rental_tariffs" ToRole="accounts" />
+    <NavigationProperty Name="rental_tariff_arch" Relationship="PaKModel.FK_rental_tariff_arch_rental_tariffs" FromRole="rental_tariffs" ToRole="rental_tariff_arch" />
+    <NavigationProperty Name="bookings" Relationship="PaKModel.FK_bookings_rental_tariffs" FromRole="rental_tariffs" ToRole="bookings" />
+  </EntityType>
+  <Association Name="FK_accounts_acct_status">
+    <End Type="PaKModel.acct_status" Role="acct_status" Multiplicity="0..1" />
+    <End Type="PaKModel.accounts" Role="accounts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="acct_status">
+        <PropertyRef Name="ast_id" />
+      </Principal>
+      <Dependent Role="accounts">
+        <PropertyRef Name="ast_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_accounts_nations">
+    <End Type="PaKModel.nations" Role="nations" Multiplicity="0..1" />
+    <End Type="PaKModel.accounts" Role="accounts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="nations">
+        <PropertyRef Name="nation_id" />
+      </Principal>
+      <Dependent Role="accounts">
+        <PropertyRef Name="nation_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_accounts_rental_tariffs">
+    <End Type="PaKModel.rental_tariffs" Role="rental_tariffs" Multiplicity="1" />
+    <End Type="PaKModel.accounts" Role="accounts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="rental_tariffs">
+        <PropertyRef Name="tariff_id" />
+      </Principal>
+      <Dependent Role="accounts">
+        <PropertyRef Name="tariff_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_accounts_rooms">
+    <End Type="PaKModel.rooms" Role="rooms" Multiplicity="0..1" />
+    <End Type="PaKModel.accounts" Role="accounts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="rooms">
+        <PropertyRef Name="room_id" />
+      </Principal>
+      <Dependent Role="accounts">
+        <PropertyRef Name="room_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_pers_data_accounts">
+    <End Type="PaKModel.accounts" Role="accounts" Multiplicity="1" />
+    <End Type="PaKModel.pers_data" Role="pers_data" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="accounts">
+        <PropertyRef Name="act_id" />
+      </Principal>
+      <Dependent Role="pers_data">
+        <PropertyRef Name="act_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_rental_tariff_arch_rental_tariffs">
+    <End Type="PaKModel.rental_tariffs" Role="rental_tariffs" Multiplicity="1" />
+    <End Type="PaKModel.rental_tariff_arch" Role="rental_tariff_arch" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="rental_tariffs">
+        <PropertyRef Name="tariff_id" />
+      </Principal>
+      <Dependent Role="rental_tariff_arch">
+        <PropertyRef Name="tariff_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="articles">
+    <Key>
+      <PropertyRef Name="art_id" />
+    </Key>
+    <Property Type="Int32" Name="art_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="art_name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="pgr_id" Nullable="false" />
+    <NavigationProperty Name="prod_grp" Relationship="PaKModel.FK_articles_prod_grp" FromRole="articles" ToRole="prod_grp" />
+    <NavigationProperty Name="c_art_pricetype" Relationship="PaKModel.FK_c_art_pricetype_articles" FromRole="articles" ToRole="c_art_pricetype" />
+    <NavigationProperty Name="bookings" Relationship="PaKModel.FK_bookings_articles" FromRole="articles" ToRole="bookings" />
+  </EntityType>
+  <EntityType Name="c_art_pricetype">
+    <Key>
+      <PropertyRef Name="apt_id" />
+    </Key>
+    <Property Type="Int32" Name="apt_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="art_id" Nullable="false" />
+    <Property Type="Int32" Name="ptp_id" Nullable="false" />
+    <Property Type="Decimal" Name="apt_price" Nullable="false" Precision="6" Scale="2" />
+    <NavigationProperty Name="articles" Relationship="PaKModel.FK_c_art_pricetype_articles" FromRole="c_art_pricetype" ToRole="articles" />
+    <NavigationProperty Name="price_type" Relationship="PaKModel.FK_c_art_pricetype_price_type" FromRole="c_art_pricetype" ToRole="price_type" />
+  </EntityType>
+  <EntityType Name="price_type">
+    <Key>
+      <PropertyRef Name="ptp_id" />
+    </Key>
+    <Property Type="Int32" Name="ptp_id" Nullable="false" />
+    <Property Type="String" Name="ptp_name" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="ptp_key" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="c_art_pricetype" Relationship="PaKModel.FK_c_art_pricetype_price_type" FromRole="price_type" ToRole="c_art_pricetype" />
+  </EntityType>
+  <EntityType Name="prod_grp">
+    <Key>
+      <PropertyRef Name="pgr_id" />
+    </Key>
+    <Property Type="Int32" Name="pgr_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="pgr_name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="articles" Relationship="PaKModel.FK_articles_prod_grp" FromRole="prod_grp" ToRole="articles" />
+  </EntityType>
+  <Association Name="FK_articles_prod_grp">
+    <End Type="PaKModel.prod_grp" Role="prod_grp" Multiplicity="1" />
+    <End Type="PaKModel.articles" Role="articles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="prod_grp">
+        <PropertyRef Name="pgr_id" />
+      </Principal>
+      <Dependent Role="articles">
+        <PropertyRef Name="pgr_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_c_art_pricetype_articles">
+    <End Type="PaKModel.articles" Role="articles" Multiplicity="1" />
+    <End Type="PaKModel.c_art_pricetype" Role="c_art_pricetype" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="articles">
+        <PropertyRef Name="art_id" />
+      </Principal>
+      <Dependent Role="c_art_pricetype">
+        <PropertyRef Name="art_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_c_art_pricetype_price_type">
+    <End Type="PaKModel.price_type" Role="price_type" Multiplicity="1" />
+    <End Type="PaKModel.c_art_pricetype" Role="c_art_pricetype" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="price_type">
+        <PropertyRef Name="ptp_id" />
+      </Principal>
+      <Dependent Role="c_art_pricetype">
+        <PropertyRef Name="ptp_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="block_list">
+    <Key>
+      <PropertyRef Name="room_number" />
+      <PropertyRef Name="status" />
+    </Key>
+    <Property Type="String" Name="room_number" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="status" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="name" MaxLength="101" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="block" Precision="6" Scale="2" />
+    <Property Type="Decimal" Name="credit" Precision="6" Scale="2" />
+    <Property Type="Decimal" Name="daily_bill" Precision="7" Scale="2" />
+  </EntityType>
+  <EntityType Name="bookings">
+    <Key>
+      <PropertyRef Name="bkg_id" />
+    </Key>
+    <Property Type="Int32" Name="bkg_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="DateTime" Name="bkg_date" Nullable="false" Precision="3" />
+    <Property Type="Int32" Name="act_id" Nullable="false" />
+    <Property Type="Int32" Name="btp_id" Nullable="false" />
+    <Property Type="Decimal" Name="bkg_amount" Nullable="false" Precision="6" Scale="2" />
+    <Property Type="Int32" Name="usr_id" Nullable="false" />
+    <Property Type="Int32" Name="clr_id" />
+    <Property Type="Int32" Name="room_id" />
+    <Property Type="Int32" Name="art_id" />
+    <Property Type="Int32" Name="tariff_id" />
+    <Property Type="Int32" Name="day_id" />
+    <Property Type="String" Name="bkg_comment" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Type="Boolean" Name="tax_relevant" />
+    <NavigationProperty Name="accounts" Relationship="PaKModel.FK_bookings_accounts" FromRole="bookings" ToRole="accounts" />
+    <NavigationProperty Name="articles" Relationship="PaKModel.FK_bookings_articles" FromRole="bookings" ToRole="articles" />
+    <NavigationProperty Name="booking_types" Relationship="PaKModel.FK_bookings_booking_types" FromRole="bookings" ToRole="booking_types" />
+    <NavigationProperty Name="clearances" Relationship="PaKModel.FK_bookings_clearances" FromRole="bookings" ToRole="clearances" />
+    <NavigationProperty Name="daily_run" Relationship="PaKModel.FK_bookings_daily_run" FromRole="bookings" ToRole="daily_run" />
+    <NavigationProperty Name="rental_tariffs" Relationship="PaKModel.FK_bookings_rental_tariffs" FromRole="bookings" ToRole="rental_tariffs" />
+    <NavigationProperty Name="rooms" Relationship="PaKModel.FK_bookings_rooms" FromRole="bookings" ToRole="rooms" />
+    <NavigationProperty Name="users" Relationship="PaKModel.FK_bookings_users" FromRole="bookings" ToRole="users" />
+  </EntityType>
+  <EntityType Name="acct_bookings">
+    <Key>
+      <PropertyRef Name="act_lastname" />
+      <PropertyRef Name="act_firstname" />
+      <PropertyRef Name="iso_2" />
+      <PropertyRef Name="ast_key" />
+      <PropertyRef Name="room_number" />
+    </Key>
+    <Property Type="String" Name="act_lastname" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="act_firstname" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="act_pseudonym" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="act_birthday" Precision="0" />
+    <Property Type="String" Name="act_birthplace" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="iso_2" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="act_passport_id" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="type_key" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="ast_key" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="tariff_id" />
+    <Property Type="Int32" Name="day_id" />
+    <Property Type="String" Name="room_number" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Boolean" Name="tax_relevant" />
+  </EntityType>
+  <Association Name="FK_bookings_accounts">
+    <End Type="PaKModel.accounts" Role="accounts" Multiplicity="1" />
+    <End Type="PaKModel.bookings" Role="bookings" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="accounts">
+        <PropertyRef Name="act_id" />
+      </Principal>
+      <Dependent Role="bookings">
+        <PropertyRef Name="act_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_bookings_articles">
+    <End Type="PaKModel.articles" Role="articles" Multiplicity="0..1" />
+    <End Type="PaKModel.bookings" Role="bookings" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="articles">
+        <PropertyRef Name="art_id" />
+      </Principal>
+      <Dependent Role="bookings">
+        <PropertyRef Name="art_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_bookings_booking_types">
+    <End Type="PaKModel.booking_types" Role="booking_types" Multiplicity="1" />
+    <End Type="PaKModel.bookings" Role="bookings" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="booking_types">
+        <PropertyRef Name="btp_id" />
+      </Principal>
+      <Dependent Role="bookings">
+        <PropertyRef Name="btp_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_bookings_clearances">
+    <End Type="PaKModel.clearances" Role="clearances" Multiplicity="0..1" />
+    <End Type="PaKModel.bookings" Role="bookings" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="clearances">
+        <PropertyRef Name="clr_id" />
+      </Principal>
+      <Dependent Role="bookings">
+        <PropertyRef Name="clr_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_bookings_daily_run">
+    <End Type="PaKModel.daily_run" Role="daily_run" Multiplicity="0..1" />
+    <End Type="PaKModel.bookings" Role="bookings" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="daily_run">
+        <PropertyRef Name="day_id" />
+      </Principal>
+      <Dependent Role="bookings">
+        <PropertyRef Name="day_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_bookings_rental_tariffs">
+    <End Type="PaKModel.rental_tariffs" Role="rental_tariffs" Multiplicity="0..1" />
+    <End Type="PaKModel.bookings" Role="bookings" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="rental_tariffs">
+        <PropertyRef Name="tariff_id" />
+      </Principal>
+      <Dependent Role="bookings">
+        <PropertyRef Name="tariff_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_bookings_rooms">
+    <End Type="PaKModel.rooms" Role="rooms" Multiplicity="0..1" />
+    <End Type="PaKModel.bookings" Role="bookings" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="rooms">
+        <PropertyRef Name="room_id" />
+      </Principal>
+      <Dependent Role="bookings">
+        <PropertyRef Name="room_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_bookings_users">
+    <End Type="PaKModel.users" Role="users" Multiplicity="1" />
+    <End Type="PaKModel.bookings" Role="bookings" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="usr_id" />
+      </Principal>
+      <Dependent Role="bookings">
+        <PropertyRef Name="usr_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="birthdays">
+    <Key>
+      <PropertyRef Name="room_number" />
+      <PropertyRef Name="status" />
+    </Key>
+    <Property Type="DateTime" Name="bday" Precision="0" />
+    <Property Type="String" Name="birthday" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="name" MaxLength="101" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="room_number" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="status" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="revenues">
+    <Key>
+      <PropertyRef Name="bkg_id" />
+      <PropertyRef Name="bkg_date" />
+      <PropertyRef Name="bkg_amount" />
+      <PropertyRef Name="btp_id" />
+      <PropertyRef Name="art_name" />
+      <PropertyRef Name="pgr_name" />
+      <PropertyRef Name="pgr_id" />
+    </Key>
+    <Property Type="Int32" Name="bkg_id" Nullable="false" />
+    <Property Type="DateTime" Name="bkg_date" Nullable="false" Precision="3" />
+    <Property Type="Decimal" Name="bkg_amount" Nullable="false" Precision="6" Scale="2" />
+    <Property Type="Int32" Name="btp_id" Nullable="false" />
+    <Property Type="String" Name="art_name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="pgr_name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="art_id" />
+    <Property Type="Int32" Name="pgr_id" Nullable="false" />
+  </EntityType>
+</Schema>

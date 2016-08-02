@@ -1,0 +1,435 @@
+﻿<UserControl x:Class="PaK_v1._0.Content.acct_list"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mui="http://firstfloorsoftware.com/ModernUI"
+             xmlns:local="clr-namespace:PaK_v1._0.Content"
+             xmlns:utilities="clr-namespace:PaK_v1._0.utilities"
+             xmlns:scm="clr-namespace:System.ComponentModel;assembly=WindowsBase"
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="1000">
+
+    <UserControl.Resources>
+        <CollectionViewSource x:Key="AcctSrc">
+            <CollectionViewSource.SortDescriptions>
+                <scm:SortDescription PropertyName="act_lastname" />
+                <scm:SortDescription PropertyName="act_firstname" />
+            </CollectionViewSource.SortDescriptions>
+
+        </CollectionViewSource>
+        <CollectionViewSource x:Key="tariffs" />
+        <CollectionViewSource x:Key="rooms" />
+        <CollectionViewSource x:Key="states" />
+        <CollectionViewSource x:Key="nations" />
+        <BooleanToVisibilityConverter x:Key="BoolToVisibilityConverter2"/>
+        <utilities:BooleanToStringConverter x:Key="BooleanToStringConverter"/>
+
+        <!--PathGeometry x:Key="DiskIconData">F1 M 20,20L 50.25,20L 56,25.75L 56,56L 20,56L 20,20 Z M 52,27.25L 48.75,24L 48,24L 48,37L 28,37L 28,24L 24,24L 24,52L 52,52L 52,27.25 Z M 39,24L 39,34L 44,34L 44,24L 39,24 Z</PathGeometry -->
+
+    </UserControl.Resources>
+
+    <Grid x:Name="Accounts" Style="{StaticResource ContentRoot}" DataContext="{Binding Source={StaticResource AcctSrc}}" Loaded="Accounts_Loaded">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="380"/>
+            <ColumnDefinition Width="1"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+
+
+        <DockPanel x:Name="dp2" Width="Auto" Height="Auto" LastChildFill="True" Margin="-5,0,0,0">
+            <local:SearchControl  DockPanel.Dock="Top" SearchHandler="SearchHandler" Margin="0,0,0,0" />
+            <ListView Name="AccountsListView" ItemsSource="{Binding Mode=OneWay}" IsSynchronizedWithCurrentItem="True" SelectedIndex="0" Margin="0,10,0,0" SelectionChanged="AccountsListView_SelectionChanged_1">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Margin="0,10,0,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="210"/>
+                                <ColumnDefinition Width="75"/>
+                                <ColumnDefinition Width="70"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+
+                            <StackPanel Grid.Column="0" Orientation="Horizontal" TextBlock.FontWeight="Bold" >
+                                <TextBlock Text="{Binding act_lastname}" />
+                                <TextBlock Text=", " />
+                                <TextBlock Text="{Binding act_firstname}" />
+                            </StackPanel>
+                            <StackPanel Grid.Column="1">
+                                <TextBlock Text="Zimmer:" />
+                            </StackPanel>
+                            <StackPanel Grid.Column="2" HorizontalAlignment="Right">
+                                <TextBlock Text="{Binding Path=rooms.room_number}" />
+                            </StackPanel>
+                            <StackPanel Grid.Row="1" Grid.Column="0" TextBlock.FontWeight="Bold" TextBlock.FontStyle="Italic">
+                                <TextBlock Text="{Binding act_pseudonym}" />
+                            </StackPanel>
+                            <StackPanel Grid.Row="1" Grid.Column="1" >
+                                <TextBlock Text="Kontostand:" />
+                            </StackPanel>
+                            <StackPanel Grid.Row="1" Grid.Column="2" HorizontalAlignment="Right">
+                                <TextBlock Text="{Binding act_balance}" />
+                            </StackPanel>
+                        </Grid>
+
+                    </DataTemplate>
+            </ListView.ItemTemplate>
+            </ListView>
+        </DockPanel>
+        <GridSplitter Width="1" Grid.Column="1" Margin="-3,0" BorderThickness="3,0" BorderBrush="Transparent" HorizontalAlignment="Stretch" />
+        <Border VerticalAlignment="Stretch" Height="Auto" Grid.Column="2" Grid.RowSpan="2" >
+            <DockPanel x:Name="acct_hdr" Grid.Column="2" Width="Auto" Height="Auto" LastChildFill="True">
+                <Grid Margin="10,10,10,10" Height="Auto" VerticalAlignment="Top" DockPanel.Dock="Top">
+                    <StackPanel Orientation="Vertical" >
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Width="200" HorizontalAlignment="Left">
+                                    <Run Text="{Binding act_firstname}" FontWeight="Bold" />
+                                    <Run Text=" " FontWeight="Bold" />
+                                    <Run Text="{Binding act_lastname}" FontWeight="Bold" />
+                                    <!-- Run Text="&#x0a;"/ -->
+                            </TextBlock>
+                            <TextBlock HorizontalAlignment="Right">
+                                <Run Text="{Binding act_pseudonym}" FontWeight="Bold"/>
+                            </TextBlock>
+                        </StackPanel>
+                    </StackPanel>
+                </Grid>
+                <Grid Margin="10,10,10,10" Background="Transparent" >
+                    <TabControl x:Name="tabs" BorderThickness="0" Background="Transparent">
+                        <TabControl.Resources>
+                            <Style TargetType="TabPanel">
+                                <Setter Property="HorizontalAlignment" Value="Left"/>
+                            </Style>
+                            <Style TargetType="Label" x:Key="HeaderLabelStyle">
+                                <Setter Property="Background" Value="Transparent" />
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding IsSelected, RelativeSource={RelativeSource AncestorType=TabItem}}" Value="True">
+                                        <Setter Property="FontWeight" Value="Bold"/>
+                                        <Setter Property="FontSize" Value="15" />
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding IsSelected, RelativeSource={RelativeSource AncestorType=TabItem}}" Value="False">
+                                        <Setter Property="FontWeight" Value="Light"/>
+                                        <Setter Property="FontSize" Value="15" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+
+                            <Style TargetType="TabItem">
+                                <Setter Property="Template">
+                                    <Setter.Value>
+
+
+                                        <ControlTemplate TargetType="TabItem">
+                                            <Grid Name="Panel">
+                                                <ContentPresenter x:Name="ContentSite"
+                                                    VerticalAlignment="Center"
+                                                    HorizontalAlignment="Center"
+                                                    ContentSource="Header"
+                                                    Margin="10,2" />
+                                            </Grid>
+
+                                            <ControlTemplate.Triggers>
+                                                <Trigger Property="IsSelected" Value="True">
+                                                    <Setter TargetName="Panel" Property="Background" Value="Transparent" />
+                                                </Trigger>
+                                                <Trigger Property="IsSelected" Value="False">
+                                                    <Setter TargetName="Panel" Property="Background" Value="Transparent" />
+                                                </Trigger>
+                                            </ControlTemplate.Triggers>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+
+                            <Style TargetType="TabItem" x:Key="svc">
+                                <Setter Property="Visibility" Value="Collapsed"/>
+
+                                <Setter Property="Template">
+                                    <Setter.Value>
+
+                                        <ControlTemplate TargetType="TabItem">
+                                            <Grid Name="Panel">
+                                                <ContentPresenter x:Name="ContentSite"
+                                                    VerticalAlignment="Center"
+                                                    HorizontalAlignment="Center"
+                                                    ContentSource="Header"
+                                                    Margin="10,2" />
+                                            </Grid>
+
+                                                <ControlTemplate.Triggers>
+                                                <Trigger Property="IsSelected" Value="True">
+                                                    <Setter TargetName="Panel" Property="Background" Value="Transparent" />
+                                                </Trigger>
+                                                <Trigger Property="IsSelected" Value="False">
+                                                    <Setter TargetName="Panel" Property="Background" Value="Transparent" />
+                                                </Trigger>
+                                            </ControlTemplate.Triggers>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Path=ast_id}" Value="1">
+                                        <Setter Property="TabItem.Visibility" Value="Visible" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+
+
+                        </TabControl.Resources>
+
+                        <TabItem Background="Transparent" BorderThickness="0" BorderBrush="Transparent">
+                            <TabItem.Header>
+                                <Label Content="KONTO" HorizontalAlignment="Stretch" FontSize="12" Style="{StaticResource HeaderLabelStyle}"/>
+                            </TabItem.Header>
+                            
+                            
+
+                            <Grid Margin="10">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="280" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                
+                                <StackPanel Grid.Column="1" Grid.Row="0" Orientation="Vertical" Margin="20,0,0,0">
+                                    <StackPanel.Resources>
+                                        <Style TargetType="StackPanel">
+                                            <Setter Property="Orientation" Value="Horizontal" />
+                                            <Setter Property="Margin" Value="0,0,0,4" />
+                                        </Style>
+                                        <Style TargetType="Label" BasedOn="{StaticResource {x:Type Label}}">
+                                            <Setter Property="Width" Value="90" />
+                                            <Setter Property="VerticalAlignment" Value="Center" />
+                                        </Style>
+                                        <Style TargetType="CheckBox" BasedOn="{StaticResource {x:Type CheckBox}}">
+                                            <Setter Property="Padding" Value="0,3" />
+                                        </Style>
+                                        <Style TargetType="RadioButton" BasedOn="{StaticResource {x:Type RadioButton}}">
+                                            <Setter Property="Padding" Value="0,3" />
+                                        </Style>
+                                    </StackPanel.Resources>
+                                    <StackPanel>
+                                        <Label Content="Addresse" />
+                                        <TextBox x:Name="TextAddress" Width="150" Text="{Binding act_address}"/>
+                                    </StackPanel>
+                                    <StackPanel>
+                                        <Label Content="Ort" />
+                                        <TextBox x:Name="TextCity" Width="150" Text="{Binding act_city}"/>
+                                    </StackPanel>
+                                    <StackPanel>
+                                        <Label Content="Postleitzahl" />
+                                        <TextBox x:Name="TextZipCode" Width="150" Text="{Binding act_zip}"/>
+                                    </StackPanel>
+
+                                    <StackPanel>
+                                        <Label Content="Email" />
+                                        <TextBox x:Name="Email" Width="150" Text="{Binding act_email}"  />
+                                    </StackPanel>
+                                    <StackPanel>
+                                        <Label Content="Telefon" />
+                                        <TextBox x:Name="TextPhone" Width="150" Text="{Binding act_phone}"  />
+                                    </StackPanel>
+                                    <StackPanel>
+                                        <Label Content=" "/>
+                                    </StackPanel>
+                                    <StackPanel>
+                                        <Label Content="Zimmer" />
+                                        <ComboBox x:Name="Room" Width="150" ItemsSource="{Binding Source={StaticResource rooms}}" DisplayMemberPath="room_number" SelectedValuePath="room_id" SelectedValue="{Binding room_id,Mode=TwoWay}"/>
+                                    </StackPanel>
+                                    <StackPanel>
+                                        <Label Content="Miete" />
+                                        <ComboBox x:Name="Rental" Width="150" ItemsSource="{Binding Source={StaticResource tariffs}}" DisplayMemberPath="tar_name" SelectedValuePath="tariff_id" SelectedValue="{Binding tariff_id,Mode=TwoWay}"/>
+                                    </StackPanel>
+                                    <StackPanel>
+                                        <Label Content="Depot" />
+                                        <TextBox x:Name="TextDeposit" Width="150" Text="{Binding act_deposit}"  />
+                                    </StackPanel>
+
+                                </StackPanel>
+                                
+                                
+                                <StackPanel Grid.Column="0" Grid.Row="0" Orientation="Vertical">
+                                    <StackPanel.Resources>
+                                        <Style TargetType="StackPanel">
+                                            <Setter Property="Orientation" Value="Horizontal" />
+                                            <Setter Property="Margin" Value="0,0,0,4" />
+                                        </Style>
+                                        <Style TargetType="Label" BasedOn="{StaticResource {x:Type Label}}">
+                                            <Setter Property="Width" Value="120" />
+                                            <Setter Property="VerticalAlignment" Value="Center" />
+                                        </Style>
+                                        <Style TargetType="CheckBox" BasedOn="{StaticResource {x:Type CheckBox}}">
+                                            <Setter Property="Padding" Value="0,3" />
+                                        </Style>
+                                        <Style TargetType="RadioButton" BasedOn="{StaticResource {x:Type RadioButton}}">
+                                            <Setter Property="Padding" Value="0,3" />
+                                        </Style>
+                                    </StackPanel.Resources>
+                                    <StackPanel>
+                                        <Label Content="Vorname" />
+                                        <TextBox x:Name="FirstName" Width="150" Text="{Binding act_firstname}"  />
+                                    </StackPanel>
+                                    <StackPanel>
+                                        <Label Content="Nachname" />
+                                        <TextBox x:Name="LastName" Width="150" Text="{Binding act_lastname}"/>
+                                    </StackPanel>
+                                    <StackPanel>
+                                        <Label Content="Pass-/Ausweis-Nr." />
+                                        <TextBox x:Name="TextPassport" Width="150" Text="{Binding act_passport_id}"/>
+                                    </StackPanel>
+                                    <StackPanel>
+                                        <Label Content="Nationalität" />
+                                        <ComboBox x:Name="Nation" Width="150" ItemsSource="{Binding Source={StaticResource nations}}" DisplayMemberPath="nation" SelectedValuePath="nation_id" SelectedValue="{Binding nation_id,Mode=TwoWay}"/>
+                                    </StackPanel>
+                                    <StackPanel>
+                                        <Label Content="Geschlecht" />
+                                        <RadioButton x:Name="RadioGenderMale" Content="Male" />
+                                        <RadioButton Content="Female" Margin="8,0,0,0"  />
+                                    </StackPanel>
+                                    <StackPanel>
+                                        <Label Content="Geburtstag" />
+                                        <DatePicker x:Name="DateBirth" SelectedDate="{Binding Path=act_birthday, StringFormat={}{0:MM-dd-yyyy}}" />
+                                    </StackPanel>
+                                    <StackPanel>
+                                        <Label Content="Pseudonym" />
+                                        <TextBox x:Name="TextPseudonym" Width="150" Text="{Binding act_pseudonym}"/>
+                                    </StackPanel>
+                                    <StackPanel>
+                                        <Label Content="Status" Target="{Binding ElementName=TextState}"/>
+                                        <ComboBox x:Name="AcctState" Width="150" ItemsSource="{Binding Source={StaticResource states}}" DisplayMemberPath="ast_name" SelectedValuePath="ast_id" SelectedValue="{Binding ast_id, Mode=TwoWay}" SelectionChanged="GuestStateChanged"/>
+                                    </StackPanel>
+                                    <StackPanel >
+                                        <Label />
+                                        <CheckBox x:Name="duedotax" Content="Düsseldorfer Verfahren" IsChecked="{Binding Path=pers_data.pdt_duedo_tax, Converter={StaticResource BooleanToStringConverter}}"/>
+                                    </StackPanel>
+                                    <StackPanel >
+                                        <Label />
+                                        <CheckBox Content="Aktiver Gast" x:Name="Active" IsChecked="{Binding act_active, Converter={StaticResource BooleanToStringConverter}}"/>
+                                    </StackPanel>
+                                </StackPanel>
+                                <StackPanel Grid.ColumnSpan="2" Grid.Row="1" Orientation="Vertical">
+                                    <StackPanel Orientation="Horizontal">
+                                        <Label Content="Notizen" Width="120" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                                        <TextBox x:Name="TextNotes" Width="430" Height="100" TextWrapping="Wrap" AcceptsReturn="True" Text="{Binding act_notes}"/>
+                                    </StackPanel>
+                                    <StackPanel Grid.ColumnSpan="2" Grid.Row="2" Margin="0,10,0,0" Orientation="Horizontal">
+                                        <mui:ModernButton IconData="{StaticResource DiskIconData}" Grid.Row="4" Click="Save_Click_1" EllipseDiameter="26" IconWidth="14" IconHeight="14" HorizontalAlignment="Left"  ToolTip="Speichern"/>
+                                        <Label Content="" Width="92"/>
+                                        <Label x:Name="notifier" Content=""/>
+                                    </StackPanel>
+                                </StackPanel>
+                                <!--Button x:Name="Save" Grid.Row="4"
+                                        Grid.Column="3"  HorizontalAlignment="Right"
+                                        VerticalAlignment="Top" Margin="3"
+                                        Width="80" Height="25"
+                                        Content="Save" Click="Save_Click_1" / -->
+                            </Grid>
+                        </TabItem>
+                        <TabItem x:Name="SvcTab" Background="Transparent" BorderThickness="0" BorderBrush="Transparent" Style="{StaticResource svc}">
+                            <TabItem.Header>
+                                <Label Content="SERVICES" MouseLeftButtonDown="tabItemServices_Clicked" HorizontalAlignment="Stretch" FontSize="12" Style="{StaticResource HeaderLabelStyle}"/>
+                            </TabItem.Header>
+                           
+                            
+                            <Grid Margin="0" >
+
+                                <StackPanel Orientation="Vertical" Margin="10,0,0,0">
+                                    <StackPanel.Resources>
+                                        <Style TargetType="StackPanel">
+                                            <Setter Property="Orientation" Value="Horizontal" />
+                                            <Setter Property="Margin" Value="0,0,0,4" />
+                                        </Style>
+                                        <Style TargetType="Label" BasedOn="{StaticResource {x:Type Label}}">
+                                            <Setter Property="Width" Value="90" />
+                                            <Setter Property="VerticalAlignment" Value="Center" />
+                                        </Style>
+                                        <Style TargetType="CheckBox" BasedOn="{StaticResource {x:Type CheckBox}}">
+                                            <Setter Property="Padding" Value="0,3" />
+                                        </Style>
+                                        <Style TargetType="RadioButton" BasedOn="{StaticResource {x:Type RadioButton}}">
+                                            <Setter Property="Padding" Value="0,3" />
+                                        </Style>
+                                    </StackPanel.Resources>
+                                    <StackPanel>
+                                        <Label Content="Grösse" />
+                                        <TextBox x:Name="txtHeight" Width="150" Text="{Binding Path=pers_data.pdt_height}"/>
+                                    </StackPanel>
+                                    <StackPanel>
+                                        <Label Content="Gewicht" />
+                                        <TextBox x:Name="txtWeight" Width="150" Text="{Binding Path=pers_data.pdt_weight}"/>
+                                    </StackPanel>
+                                    <StackPanel>
+                                        <Label Content="Haarfarbe" />
+                                        <TextBox x:Name="txtHaircol" Width="150" Text="{Binding Path=pers_data.pdt_hair_color}"/>
+                                    </StackPanel>
+                                    <StackPanel>
+                                        <Label Content="Körperfarbe" />
+                                        <TextBox x:Name="txtBodycol" Width="150" Text="{Binding Path=pers_data.pdt_body_color}"/>
+                                    </StackPanel>
+                                    <StackPanel>
+                                        <Label Content="Brustumfang" />
+                                        <TextBox x:Name="txtBustsize" Width="150" Text="{Binding Path=pers_data.pdt_bust_size}"/>
+                                    </StackPanel>
+                                    <StackPanel>
+                                        <Label Content="Referenzen" />
+                                        <TextBox x:Name="txtReferences" Width="250" Text="{Binding Path=pers_data.pdt_reference}"/>
+                                    </StackPanel>
+                                    <StackPanel>
+                                        <Label Content="Spezialitäten" />
+                                        <TextBox x:Name="txtSecialsvc" Width="250" Text="{Binding Path=pers_data.pdt_spec_services}"/>
+                                    </StackPanel>
+                                    <StackPanel>
+                                        <Label  Content=" "/>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                        <CheckBox Width="120" Content="Berufserfahrung" IsChecked="{Binding Path=pers_data.pdt_experience, Converter={StaticResource BooleanToStringConverter}}" />
+                                        <Label  Content=" "/>
+                                        <CheckBox Content="Stammkundschaft" IsChecked="{Binding Path=pers_data.pdt_regular_customers, Converter={StaticResource BooleanToStringConverter}}" />
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                        <CheckBox Width="120" Content="Tattoo" IsChecked="{Binding Path=pers_data.pdt_tattoo, Converter={StaticResource BooleanToStringConverter}}" />
+                                        <Label  Content=" "/>
+                                        <CheckBox Content="Piercing" IsChecked="{Binding Path=pers_data.pdt_piercing, Converter={StaticResource BooleanToStringConverter}}" />
+                                    </StackPanel>
+
+                                    <StackPanel Orientation="Vertical" Margin="0,10,0,0">
+                                        <StackPanel>
+                                            <Label  Content="Services" FontWeight="Bold"/>
+                                        </StackPanel>
+                                        <StackPanel>
+                                                <ItemsControl x:Name="serviceLst">
+                                                    <ItemsControl.ItemTemplate>
+                                                        <DataTemplate>
+                                                                <CheckBox Content="{Binding Svc.svc_name}" IsChecked="{Binding IsSelected}" />
+                                                        </DataTemplate>
+                                                    </ItemsControl.ItemTemplate>
+                                                </ItemsControl>
+                                        </StackPanel>
+                                    </StackPanel>
+                                    <!-- <Button x:Name="Save_Svc" Width="80" Height="25" Content="Save" Click="Save_Click_2" /> Command="{Binding Commands.search}" -->
+                                    <StackPanel Margin="0,15,0,0">
+                                        <mui:ModernButton x:Name="Save_Svc" IconData="{StaticResource DiskIconData}" Click="Save_Click_2" EllipseDiameter="26" IconWidth="14" IconHeight="14" HorizontalAlignment="Left"  ToolTip="Speichern"/>
+                                        <Label Content=""/>
+                                        <Label x:Name="notifier2" Content="test" Width="200"/>
+                                    </StackPanel>
+                                </StackPanel>
+
+                            </Grid>
+                        </TabItem>
+                    </TabControl>
+
+                </Grid>
+        </DockPanel>
+        </Border>
+    </Grid>
+</UserControl>

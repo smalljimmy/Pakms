@@ -1,0 +1,77 @@
+﻿<UserControl x:Class="PaK_v1._0.Pages.Content.chpwd"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mui="http://firstfloorsoftware.com/ModernUI"
+             xmlns:utilities="clr-namespace:PaK_v1._0.utilities"
+             xmlns:appvm="clr-namespace:PaK_v1._0.ViewModels"
+             mc:Ignorable="d" 
+             d:DesignHeight="400" d:DesignWidth="500">
+    <UserControl.Resources>
+        <utilities:PwdConverter x:Key="PwdConverter"/>
+        <!-- appvm:ChPwdVM x:Key="ChPwdVM"/ -->
+        <!-- Style TargetType="{x:Type PasswordBox}">
+            <Setter Property="Validation.ErrorTemplate">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <Border BorderThickness="1" BorderBrush="Crimson" VerticalAlignment="Top">
+                                <Grid>
+                                    <AdornedElementPlaceholder x:Name="adorner" Margin="-1"/>
+                                </Grid>
+                            </Border>
+                            <Border x:Name="errorBorder" Background="Crimson" Margin="8,0,0,0" CornerRadius="0" IsHitTestVisible="False">
+                                <TextBlock Text="{Binding Path=ErrorContent}" Foreground="White" FontFamily="Segoe UI" Margin="8,2,8,3" TextWrapping="Wrap" VerticalAlignment="Center"/>
+                            </Border>
+                        </StackPanel>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style -->
+    </UserControl.Resources>
+    <Grid Style="{StaticResource ContentRoot}">
+        <ScrollViewer>
+            <StackPanel MinWidth="200">
+                <TextBlock Text="EIGENES PASSWORD ÄNDERN" Style="{StaticResource Heading2}" Margin="0,0,0,8" />
+
+                <StackPanel x:Name="Form" Orientation="Vertical">
+                    <StackPanel.Resources>
+                        <Style TargetType="StackPanel">
+                            <Setter Property="Orientation" Value="Horizontal" />
+                            <Setter Property="Margin" Value="0,0,0,4" />
+                        </Style>
+                        <Style TargetType="Label" BasedOn="{StaticResource {x:Type Label}}">
+                            <Setter Property="Width" Value="150" />
+                            <Setter Property="VerticalAlignment" Value="Center" />
+                        </Style>
+                    </StackPanel.Resources>
+                    <StackPanel>
+                        <Label Content="Altes Passwort" />
+                        <PasswordBox Name="passwordBox0" Width="150"/>
+                    </StackPanel>
+                    <StackPanel>
+                        <Label Content="Neues Passwort" />
+                        <PasswordBox Name="passwordBox1" Width="150"/>
+                    </StackPanel>
+                    <StackPanel>
+                        <Label Content="Passwort wiederholen" />
+                        <PasswordBox Name="passwordBox2" Width="150" />
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel>
+                    <TextBlock Height="23" HorizontalAlignment="Left" x:Name ="errormessage" Text="{Binding Status}" VerticalAlignment="Top" Width="450"   Foreground="{Binding FgColor}"  />
+                </StackPanel>
+                <mui:ModernButton Name="btnSave" IconData="{StaticResource DiskIconData}" Command="{Binding SaveCommand}" EllipseDiameter="26" IconWidth="14" IconHeight="14" HorizontalAlignment="Left" ToolTip="Speichern">
+                    <mui:ModernButton.CommandParameter>
+                        <MultiBinding Converter="{StaticResource PwdConverter}">
+                            <Binding ElementName="passwordBox0"/>
+                            <Binding ElementName="passwordBox1"/>
+                            <Binding ElementName="passwordBox2"/>
+                        </MultiBinding>
+                    </mui:ModernButton.CommandParameter>
+                </mui:ModernButton>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</UserControl>

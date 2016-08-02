@@ -1,0 +1,48 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaK_v1.0", "PaK_v1.0\PaK_v1.0.csproj", "{A9DAC582-5CE7-486A-940D-DBF3E1AD993A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ICP.Controls.PrintableListView", "ICP.Controls.PrintableListView\ICP.Controls.PrintableListView.csproj", "{6181DFAB-93D9-4501-9799-B120707843C1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{A1D42F3A-7FF4-4BE7-AA5D-86D707E8EC26}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\packages.config = .nuget\packages.config
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToggleConfigEncrption", "ToggleConfigEncrption\ToggleConfigEncrption.csproj", "{C640FA21-D00C-4659-86A8-61D69F691A6F}"
+EndProject
+Global
+	GlobalSection(SubversionScc) = preSolution
+		Svn-Managed = True
+		Manager = AnkhSVN - Subversion Support for Visual Studio
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Development|Any CPU = Development|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A9DAC582-5CE7-486A-940D-DBF3E1AD993A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9DAC582-5CE7-486A-940D-DBF3E1AD993A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9DAC582-5CE7-486A-940D-DBF3E1AD993A}.Development|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9DAC582-5CE7-486A-940D-DBF3E1AD993A}.Development|Any CPU.Build.0 = Debug|Any CPU
+		{A9DAC582-5CE7-486A-940D-DBF3E1AD993A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9DAC582-5CE7-486A-940D-DBF3E1AD993A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6181DFAB-93D9-4501-9799-B120707843C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6181DFAB-93D9-4501-9799-B120707843C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6181DFAB-93D9-4501-9799-B120707843C1}.Development|Any CPU.ActiveCfg = Debug|Any CPU
+		{6181DFAB-93D9-4501-9799-B120707843C1}.Development|Any CPU.Build.0 = Debug|Any CPU
+		{6181DFAB-93D9-4501-9799-B120707843C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6181DFAB-93D9-4501-9799-B120707843C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C640FA21-D00C-4659-86A8-61D69F691A6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C640FA21-D00C-4659-86A8-61D69F691A6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C640FA21-D00C-4659-86A8-61D69F691A6F}.Development|Any CPU.ActiveCfg = Debug|Any CPU
+		{C640FA21-D00C-4659-86A8-61D69F691A6F}.Development|Any CPU.Build.0 = Debug|Any CPU
+		{C640FA21-D00C-4659-86A8-61D69F691A6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C640FA21-D00C-4659-86A8-61D69F691A6F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

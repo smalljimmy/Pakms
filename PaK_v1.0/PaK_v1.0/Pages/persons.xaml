@@ -1,0 +1,25 @@
+﻿<UserControl x:Class="PaK_v1._0.Pages.persons"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mui="http://firstfloorsoftware.com/ModernUI"
+             mc:Ignorable="d" 
+             d:DesignHeight="800" d:DesignWidth="600">
+
+    <Grid Name="gridTab" Style="{StaticResource ContentRoot}">
+
+        <mui:ModernTab SelectedSource="{Binding SelSrc}" Layout="List" Links="{Binding MenuLinks}"></mui:ModernTab>
+
+        <!-- mui:ModernTab SelectedSource="{Binding SelectedSource, Mode=TwoWay}" Layout="List">
+            <mui:ModernTab.Links>
+                <mui:Link DisplayName="aktive" Source="/Pages/Content/pers_list.xaml#1" />
+                <mui:Link DisplayName="block" Source="/Pages/Content/pers_list.xaml#2" />
+                <mui:Link DisplayName="alle" Source="/Pages/Content/pers_list.xaml#3" />
+                <mui:Link DisplayName="deaktiviert" Source="/Pages/Content/pers_list.xaml#4" />
+                <mui:Link DisplayName="neues konto" Source="/Pages/Content/new_acct.xaml" />
+            </mui:ModernTab.Links>
+        </mui:ModernTab -->
+
+    </Grid>
+</UserControl>

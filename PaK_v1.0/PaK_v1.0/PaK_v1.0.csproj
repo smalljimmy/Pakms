@@ -1,0 +1,612 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A9DAC582-5CE7-486A-940D-DBF3E1AD993A}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PaK_v1._0</RootNamespace>
+    <AssemblyName>PaK_v1.0</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>C:\Program Files %28x86%29\Pak\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Unc</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <InstallUrl>\\enzo-101\projects\Internal\prj\PaK\publish\</InstallUrl>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.0</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>0D444C32FCDC5EC6C908E38E9D69136E1ABC721A</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>PaK_v1.0_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>favicon3.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FirstFloor.ModernUI, Version=1.0.6.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>sbin\FirstFloor.ModernUI.dll</HintPath>
+    </Reference>
+    <Reference Include="ICP.Controls.PrintableListView, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>sbin\ICP.Controls.PrintableListView.dll</HintPath>
+    </Reference>
+    <Reference Include="Itenso.Windows.Controls.ListViewLayout">
+      <HintPath>sbin\Itenso.Windows.Controls.ListViewLayout.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp">
+      <HintPath>sbin\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Expression.Interactions">
+      <HintPath>..\packages\Blend.Interctivity.WPF.v4.0.1.0.3\lib\net40\Microsoft.Expression.Interactions.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows" />
+    <Reference Include="System.Windows.Interactivity">
+      <HintPath>..\packages\Blend.Interctivity.WPF.v4.0.1.0.3\lib\net40\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Login_alt.xaml.cs">
+      <DependentUpon>Login_alt.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Models\accounts.cs" />
+    <Compile Include="Models\LBookings.cs" />
+    <Compile Include="Models\clearances.cs" />
+    <Compile Include="Models\PaKEntities.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PaKEntities.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PriceTypeItem.cs" />
+    <Compile Include="Models\Revenue.cs" />
+    <Compile Include="Models\rooms_custom.cs" />
+    <Compile Include="Models\TabItem.cs" />
+    <Compile Include="Models\users.cs" />
+    <Compile Include="Models\usr_access_rights.cs" />
+    <Compile Include="Pages\articles.xaml.cs">
+      <DependentUpon>articles.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\clearances.xaml.cs">
+      <DependentUpon>clearances.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Content\app_settings.xaml.cs">
+      <DependentUpon>app_settings.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Content\birthdays.xaml.cs">
+      <DependentUpon>birthdays.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Content\blocklist.xaml.cs">
+      <DependentUpon>blocklist.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Content\booking_list.xaml.cs">
+      <DependentUpon>booking_list.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Content\book_list.xaml.cs">
+      <DependentUpon>book_list.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Content\cash_booking.xaml.cs">
+      <DependentUpon>cash_booking.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Content\chpwd.xaml.cs">
+      <DependentUpon>chpwd.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Content\cleared.xaml.cs">
+      <DependentUpon>cleared.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Content\create_article.xaml.cs">
+      <DependentUpon>create_article.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Content\create_prdgrp.xaml.cs">
+      <DependentUpon>create_prdgrp.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Content\daily_booking_sums.xaml.cs">
+      <DependentUpon>daily_booking_sums.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Content\edit_article.xaml.cs">
+      <DependentUpon>edit_article.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Content\edit_prdgrp.xaml.cs">
+      <DependentUpon>edit_prdgrp.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Content\free_booking.xaml.cs">
+      <DependentUpon>free_booking.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Content\revenue_by_articles.xaml.cs">
+      <DependentUpon>revenue_by_articles.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Content\room_booking.xaml.cs">
+      <DependentUpon>room_booking.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Content\room_occupancy.xaml.cs">
+      <DependentUpon>room_occupancy.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Content\newuser.xaml.cs">
+      <DependentUpon>newuser.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Content\ppoverview.xaml.cs">
+      <DependentUpon>ppoverview.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Content\duedotax.xaml.cs">
+      <DependentUpon>duedotax.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Content\Modelsaccounts.cs" />
+    <Compile Include="Pages\Content\new_acct.xaml.cs">
+      <DependentUpon>new_acct.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Pages\bookings.xaml.cs">
+      <DependentUpon>bookings.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Content\new_room.xaml.cs">
+      <DependentUpon>new_room.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Content\new_booking.xaml.cs">
+      <DependentUpon>new_booking.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Content\roomlist.xaml.cs">
+      <DependentUpon>roomlist.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Content\uncleared.xaml.cs">
+      <DependentUpon>uncleared.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Content\userlist.xaml.cs">
+      <DependentUpon>userlist.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\persons.xaml.cs">
+      <DependentUpon>persons.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Content\SearchControl.xaml.cs">
+      <DependentUpon>SearchControl.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Pages\reports.xaml.cs">
+      <DependentUpon>reports.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\rooms.xaml.cs">
+      <DependentUpon>rooms.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\users.xaml.cs">
+      <DependentUpon>users.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\workrep.xaml.cs">
+      <DependentUpon>workrep.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="utilities\ApplicationState.cs" />
+    <Compile Include="utilities\AutoRefresh.cs" />
+    <Compile Include="utilities\AutoRefreshWrapper.cs" />
+    <Compile Include="utilities\Bool2VisibleConverter.cs" />
+    <Compile Include="utilities\BooleanToStringConverter.cs" />
+    <Compile Include="utilities\CustomeUserControl.cs" />
+    <Compile Include="utilities\DelegateCommand.cs" />
+    <Compile Include="Pages\Content\pers_list.xaml.cs">
+      <DependentUpon>pers_list.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaces\IAuthenticationService.cs" />
+    <Compile Include="Login.xaml.cs">
+      <DependentUpon>Login.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AnonymousIdentity.cs" />
+    <Compile Include="Models\CustomIdentity.cs" />
+    <Compile Include="Models\CustomPrincipal.cs" />
+    <Compile Include="utilities\EncryptPwd.cs" />
+    <Compile Include="utilities\EnumToBoolConverter.cs" />
+    <Compile Include="utilities\HackedDataGridComboBox.cs" />
+    <Compile Include="utilities\INavigationService.cs" />
+    <Compile Include="utilities\INotifyRefresh.cs" />
+    <Compile Include="utilities\KeyUpWithArgs.cs" />
+    <Compile Include="utilities\NavigationService.cs" />
+    <Compile Include="utilities\NotConverter.cs" />
+    <Compile Include="utilities\PasswordHelper.cs" />
+    <Compile Include="utilities\PrinterManager.cs" />
+    <Compile Include="utilities\PDFTemplate.cs" />
+    <Compile Include="utilities\PwdConverter.cs" />
+    <Compile Include="utilities\ScanManager.cs" />
+    <Compile Include="utilities\ServiceBrokerUtility.cs" />
+    <Compile Include="utilities\SetControlFocus.cs" />
+    <Compile Include="utilities\ThemeManager.cs" />
+    <Compile Include="ViewModels\AppSettingsVM.cs" />
+    <Compile Include="ViewModels\ArticlesVM.cs" />
+    <Compile Include="ViewModels\birthdaysVM.cs" />
+    <Compile Include="ViewModels\BlockListVM.cs" />
+    <Compile Include="ViewModels\BookListVM.cs" />
+    <Compile Include="ViewModels\CashBookVM.cs" />
+    <Compile Include="ViewModels\ChPwdVM.cs" />
+    <Compile Include="ViewModels\ClearedVM.cs" />
+    <Compile Include="ViewModels\CreateArticleVM.cs" />
+    <Compile Include="ViewModels\CreatePrdGrpVM.cs" />
+    <Compile Include="ViewModels\DailyBookingSumsVM.cs" />
+    <Compile Include="ViewModels\EditArticleVM.cs" />
+    <Compile Include="ViewModels\EditPrdGrpVM.cs" />
+    <Compile Include="ViewModels\FreeBookingVM.cs" />
+    <Compile Include="ViewModels\OccupancyVM.cs" />
+    <Compile Include="ViewModels\OverviewRepVM.cs" />
+    <Compile Include="ViewModels\PersonVM.cs" />
+    <Compile Include="ViewModels\reportsVM.cs" />
+    <Compile Include="ViewModels\RevenuesVM.cs" />
+    <Compile Include="ViewModels\RoomBookVM.cs" />
+    <Compile Include="ViewModels\RoomsVM.cs" />
+    <Compile Include="ViewModels\SettingsVM.cs" />
+    <Compile Include="ViewModels\TaxRepVM.cs" />
+    <Compile Include="ViewModels\UnclearedVM.cs" />
+    <Compile Include="ViewModels\TabVM.cs" />
+    <Compile Include="utilities\VMBase.cs" />
+    <Compile Include="ViewModels\AcctDetVM.cs" />
+    <Compile Include="ViewModels\AcctNewVM.cs" />
+    <Compile Include="ViewModels\AcctVM.cs" />
+    <Compile Include="ViewModels\BookNewVM.cs" />
+    <Compile Include="ViewModels\loginVM.cs" />
+    <Compile Include="ViewModels\RoomNewVM.cs" />
+    <Compile Include="ViewModels\RoomVM.cs" />
+    <Compile Include="ViewModels\UserListVM.cs" />
+    <Compile Include="ViewModels\UserNewVM.cs" />
+    <Compile Include="ViewModels\usersVM.cs" />
+    <Compile Include="ViewModels\workrepVM.cs" />
+    <Page Include="assets\pascha.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Login_alt.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\articles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\clearances.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Content\AcctLstCtrl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Content\acct_list.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Content\app_settings.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Content\birthdays.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Content\blocklist.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Content\booking_list.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\Content\book_list.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Content\cash_booking.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Content\chpwd.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Content\cleared.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\Content\create_article.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Content\create_prdgrp.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Content\daily_booking_sums.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Content\edit_article.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Content\edit_prdgrp.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Content\free_booking.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Content\revenue_by_articles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Content\room_booking.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Content\room_occupancy.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\Content\newuser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Content\ppoverview.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\Content\duedotax.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Content\new_acct.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Content\new_room.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Content\new_booking.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Content\pers_list.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Login.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="Pages\Content\AcctLstCtrl.xaml.cs">
+      <DependentUpon>AcctLstCtrl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Content\acct_list.xaml.cs">
+      <DependentUpon>acct_list.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Pages\Content\About.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Compile Include="Pages\Content\About.xaml.cs">
+      <DependentUpon>About.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Pages\Content\roomlist.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\Content\SettingsAppearance.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Compile Include="Pages\Content\SettingsAppearance.xaml.cs">
+      <DependentUpon>SettingsAppearance.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Content\SettingsAppearanceViewModel.cs" />
+    <Page Include="Pages\accounts.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\bookings.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\Content\uncleared.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Content\userlist.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\persons.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\reports.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\rooms.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\Settings.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Compile Include="Pages\accounts.xaml.cs">
+      <DependentUpon>accounts.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Settings.xaml.cs">
+      <DependentUpon>Settings.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Page Include="Pages\users.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\workrep.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PaKStyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Content\SearchControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <EntityDeploy Include="Models\PaKEntities.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>PaKEntities.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Models\PaKEntities.edmx.diagram">
+      <DependentUpon>PaKEntities.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="pdf\Blocklist_201511000.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Properties\DataSources\PaK_v1._0.Models.PaKEntities.datasource" />
+    <None Include="tpl\clearance_prot_tpl.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="tpl\clearance_prot_tpl2.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="tpl\Personalbogen.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="tpl\personalbogen_tpl.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="tpl\personalfragebogen_tpl.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="favicon3.ico" />
+    <Content Include="graphics\favicon3.ico" />
+    <Content Include="graphics\pascha-logo-koeln.png" />
+    <Content Include="sbin\FirstFloor.ModernUI.dll" />
+    <Content Include="sbin\FirstFloor.ModernUI.xml" />
+    <Content Include="sbin\ICP.Controls.PrintableListView.dll" />
+    <Content Include="sbin\Itenso.Windows.Controls.ListViewLayout.dll" />
+    <Content Include="sbin\itextsharp.dll" />
+    <Content Include="sbin\itextsharp.pdfa.dll" />
+    <Content Include="sbin\iTextSharp.xml" />
+    <Content Include="sbin\itextsharp.xtra.dll" />
+    <Content Include="sbin\SumatraPDF.exe" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="img\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="WIA">
+      <Guid>{94A0E92D-43C0-494E-AC29-FD45948A5221}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

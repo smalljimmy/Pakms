@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="6ca9d8fd5d194f759506649b8cbffcb9" Name="Diagram1">
+        <EntityTypeShape EntityType="PaKModel.acct_status" Width="1.5" PointX="1.2170137563799572" PointY="16.924451895488637" />
+        <EntityTypeShape EntityType="PaKModel.booking_types" Width="1.5" PointX="10.5" PointY="35.5" />
+        <EntityTypeShape EntityType="PaKModel.c_pers_data_svc" Width="1.5" PointX="5.1835663175133826" PointY="19.163699009997629" />
+        <EntityTypeShape EntityType="PaKModel.nations" Width="1.5" PointX="8" PointY="26" />
+        <EntityTypeShape EntityType="PaKModel.pers_svc" Width="1.5" PointX="3.25" PointY="20.625" />
+        <EntityTypeShape EntityType="PaKModel.rental_tariff_arch" Width="1.5" PointX="9.625" PointY="19.625" />
+        <EntityTypeShape EntityType="PaKModel.room_types" Width="1.5" PointX="10.125" PointY="28.5" />
+        <EntityTypeShape EntityType="PaKModel.rooms" Width="1.5" PointX="8.125" PointY="28.25" />
+        <AssociationConnector Association="PaKModel.FK_c_pers_data_svc_pers_svc" />
+        <AssociationConnector Association="PaKModel.FK_rooms_room_types" />
+        <EntityTypeShape EntityType="PaKModel.clearances" Width="1.5" PointX="5.625" PointY="30.75" />
+        <EntityTypeShape EntityType="PaKModel.pers_data" Width="1.5" PointX="4" PointY="14.875" />
+        <EntityTypeShape EntityType="PaKModel.settings" Width="1.5" PointX="8.75" PointY="14.375" />
+        <EntityTypeShape EntityType="PaKModel.daily_run" Width="1.5" PointX="9" PointY="22.5" />
+        <EntityTypeShape EntityType="PaKModel.users" Width="1.5" PointX="2.75" PointY="29.625" />
+        <AssociationConnector Association="PaKModel.FK_clearances_users" />
+        <EntityTypeShape EntityType="PaKModel.roles" Width="1.5" PointX="0.5" PointY="30.125" />
+        <EntityTypeShape EntityType="PaKModel.wpf_views" Width="1.5" PointX="0.5" PointY="32.875" />
+        <AssociationConnector Association="PaKModel.FK_users_roles" />
+        <AssociationConnector Association="PaKModel.view_role" />
+        <EntityTypeShape EntityType="PaKModel.room_occupancy" Width="1.5" PointX="7" PointY="14.375" />
+        <EntityTypeShape EntityType="PaKModel.accounts" Width="1.5" PointX="5.75" PointY="23.25" />
+        <EntityTypeShape EntityType="PaKModel.rental_tariffs" Width="1.5" PointX="7.375" PointY="19.125" />
+        <AssociationConnector Association="PaKModel.FK_accounts_acct_status" />
+        <AssociationConnector Association="PaKModel.FK_accounts_nations" />
+        <AssociationConnector Association="PaKModel.FK_accounts_rental_tariffs" />
+        <AssociationConnector Association="PaKModel.FK_accounts_rooms" />
+        <AssociationConnector Association="PaKModel.FK_pers_data_accounts" />
+        <AssociationConnector Association="PaKModel.FK_rental_tariff_arch_rental_tariffs" />
+        <EntityTypeShape EntityType="PaKModel.articles" Width="1.5" PointX="3.5164714006318114" PointY="24.856281187784056" />
+        <EntityTypeShape EntityType="PaKModel.c_art_pricetype" Width="1.5" PointX="10" PointY="38.125" />
+        <EntityTypeShape EntityType="PaKModel.price_type" Width="1.5" PointX="12.75" PointY="38.625" />
+        <EntityTypeShape EntityType="PaKModel.prod_grp" Width="1.5" PointX="13.875" PointY="36.375" />
+        <AssociationConnector Association="PaKModel.FK_articles_prod_grp" />
+        <AssociationConnector Association="PaKModel.FK_c_art_pricetype_articles" />
+        <AssociationConnector Association="PaKModel.FK_c_art_pricetype_price_type" />
+        <EntityTypeShape EntityType="PaKModel.block_list" Width="1.5" PointX="13.875" PointY="32.875" />
+        <EntityTypeShape EntityType="PaKModel.bookings" Width="1.5" PointX="5.125" PointY="36.125" />
+        <EntityTypeShape EntityType="PaKModel.acct_bookings" Width="1.5" PointX="8.125" PointY="37.625" />
+        <AssociationConnector Association="PaKModel.FK_bookings_accounts" />
+        <AssociationConnector Association="PaKModel.FK_bookings_articles" />
+        <AssociationConnector Association="PaKModel.FK_bookings_booking_types" />
+        <AssociationConnector Association="PaKModel.FK_bookings_clearances" />
+        <AssociationConnector Association="PaKModel.FK_bookings_daily_run" />
+        <AssociationConnector Association="PaKModel.FK_bookings_rental_tariffs" />
+        <AssociationConnector Association="PaKModel.FK_bookings_rooms" />
+        <AssociationConnector Association="PaKModel.FK_bookings_users" />
+        <EntityTypeShape EntityType="PaKModel.birthdays" Width="1.5" PointX="1.125" PointY="37.375" />
+        <EntityTypeShape EntityType="PaKModel.revenues" Width="1.5" PointX="1.125" PointY="39.625" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

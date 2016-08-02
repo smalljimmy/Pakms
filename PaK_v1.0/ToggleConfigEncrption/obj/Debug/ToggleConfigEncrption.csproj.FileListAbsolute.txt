@@ -1,0 +1,5 @@
+c:\Users\szh\Documents\Visual Studio 2012\Projects\ToggleConfigEncrption\ToggleConfigEncrption\bin\Debug\ToggleConfigEncryption.exe.config
+c:\Users\szh\Documents\Visual Studio 2012\Projects\ToggleConfigEncrption\ToggleConfigEncrption\bin\Debug\ToggleConfigEncryption.exe
+c:\Users\szh\Documents\Visual Studio 2012\Projects\ToggleConfigEncrption\ToggleConfigEncrption\bin\Debug\ToggleConfigEncryption.pdb
+c:\Users\szh\Documents\Visual Studio 2012\Projects\ToggleConfigEncrption\ToggleConfigEncrption\obj\Debug\ToggleConfigEncryption.exe
+c:\Users\szh\Documents\Visual Studio 2012\Projects\ToggleConfigEncrption\ToggleConfigEncrption\obj\Debug\ToggleConfigEncryption.pdb

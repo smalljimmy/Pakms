@@ -1,0 +1,132 @@
+﻿<UserControl x:Class="PaK_v1._0.Pages.Content.birthdays"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mui="http://firstfloorsoftware.com/ModernUI"
+             xmlns:icp="clr-namespace:ICP.Controls.PrintableListView;assembly=ICP.Controls.PrintableListView"
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="800">
+
+    <UserControl.Resources>
+        <Style TargetType="ListViewItem" BasedOn="{StaticResource ResourceKey={x:Type ListViewItem}}">
+            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+        </Style>
+        <Style x:Key="HeaderStyleR" TargetType="GridViewColumnHeader" BasedOn="{StaticResource ResourceKey={x:Type GridViewColumnHeader}}">
+            <Setter Property="HorizontalContentAlignment" Value="Right"/>
+        </Style>
+        <Style x:Key="HeaderStyleL" TargetType="GridViewColumnHeader" BasedOn="{StaticResource ResourceKey={x:Type GridViewColumnHeader}}">
+            <Setter Property="HorizontalContentAlignment" Value="Left"/>
+        </Style>
+    </UserControl.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Vertical" DockPanel.Dock="Top" Margin="0,0,0,0" Grid.Row="0">
+            <TextBlock Text="Geburtstage" Style="{StaticResource Heading2}" />
+            <StackPanel  Orientation="Horizontal" Margin="0,10,0,10">
+                <Label Content="Am" Width="30" Margin="0,5,0,0"/>
+                <DatePicker SelectedDate="{Binding dtFrom, Mode=TwoWay}" />
+                <Label Content="" Width="10"/>
+                <mui:ModernButton IconData="{StaticResource LupeIconData}" Command="{Binding Commands.search}" EllipseDiameter="26" IconWidth="14" IconHeight="14" HorizontalAlignment="Left" ToolTip="Suchen"/>
+                <Label Content="" Width="40"/>
+                <mui:ModernButton IconData="{StaticResource PrintIconData}" Command="{Binding ElementName=listView, Path=PrintCommand}" EllipseDiameter="26" IconWidth="14" IconHeight="14" HorizontalAlignment="Left" ToolTip="Drucken"/>
+            </StackPanel>
+        </StackPanel>
+
+        <icp:PrintableListView AlternationCount="2" Grid.Row="1" Name="listView" PageMargin="40" PageSize="793.247244094488,1122.70866141732" HeaderSize="300,100" FooterSize="300,180" ItemsSource="{Binding Birthdays}" >
+
+            <icp:PrintableListView.View>
+                <GridView >
+                    <GridViewColumn Header="Geburtstag"  Width="100" HeaderContainerStyle="{StaticResource HeaderStyleL}">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding birthday}" TextAlignment="Left" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Name" Width="150" HeaderContainerStyle="{StaticResource HeaderStyleL}">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding name}" TextAlignment="Left" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Zimmer"  Width="80" HeaderContainerStyle="{StaticResource HeaderStyleL}">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding room_number}" TextAlignment="Left" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Status" Width="80" HeaderContainerStyle="{StaticResource HeaderStyleL}">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding status}" TextAlignment="Left" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+
+                </GridView>
+            </icp:PrintableListView.View>
+
+            <icp:PrintableListView.ReportBody>
+                <GridView>
+                    <GridViewColumn Header="Geburtstag"  Width="100" HeaderContainerStyle="{StaticResource HeaderStyleL}" DisplayMemberBinding="{Binding birthday}">
+                        <!-- GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding room_number}" TextAlignment="Left" Foreground="Black"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate-->
+                    </GridViewColumn>
+                    <GridViewColumn Header="Name" Width="150" HeaderContainerStyle="{StaticResource HeaderStyleL}" DisplayMemberBinding="{Binding name}">
+                        <!--GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding status}" TextAlignment="Left" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate-->
+                    </GridViewColumn>
+                    <GridViewColumn Header="Zimmer" Width="80" HeaderContainerStyle="{StaticResource HeaderStyleL}" DisplayMemberBinding="{Binding room_number}">
+                        <!--GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding pseudonym}" TextAlignment="Left" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate-->
+                    </GridViewColumn>
+                    <GridViewColumn Header="Status" Width="80" HeaderContainerStyle="{StaticResource HeaderStyleL}" DisplayMemberBinding="{Binding status}">
+                        <!--GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding block}" TextAlignment="Right" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate-->
+                    </GridViewColumn>
+                </GridView>
+            </icp:PrintableListView.ReportBody>
+            <icp:PrintableListView.PageHeaderTemplate>
+                <DataTemplate>
+                    <Grid Margin="5" >
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                        </Grid.RowDefinitions>
+
+                        <TextBlock Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding ParentDataContext.Title}" Foreground="Black"  FontSize="20"></TextBlock>
+
+                    </Grid>
+                </DataTemplate>
+            </icp:PrintableListView.PageHeaderTemplate>
+            <icp:PrintableListView.PageFooterTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal" Grid.Row="1">
+                        <TextBlock FontSize="10" Text="Page Number:"></TextBlock>
+                        <TextBlock FontSize="10" Text="{Binding PageNumber}"></TextBlock>
+                    </StackPanel>
+                </DataTemplate>
+            </icp:PrintableListView.PageFooterTemplate>
+        </icp:PrintableListView>
+    </Grid>
+</UserControl>

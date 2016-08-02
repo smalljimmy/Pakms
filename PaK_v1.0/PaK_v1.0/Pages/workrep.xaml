@@ -1,0 +1,22 @@
+﻿<UserControl x:Class="PaK_v1._0.Pages.workrep"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mui="http://firstfloorsoftware.com/ModernUI"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid Style="{StaticResource ContentRoot}">
+        <!-- TODO: set @SelectedSource -->
+        <mui:ModernTab SelectedSource="{Binding SelSrc}" Layout="List" Links="{Binding MenuLinks}">
+            <!-- mui:ModernTab.Links>
+                <mui:Link DisplayName="düsseldorfer tax" Source="/Pages/Content/duedotax.xaml#1" />
+                <mui:Link DisplayName="düsseldorfer tax alle" Source="/Pages/Content/duedotax.xaml#2" />
+                <mui:Link DisplayName="vergnügungssteuer" Source="/Pages/Content/duedotax.xaml#3" />
+                <mui:Link DisplayName="mieterübersicht" Source="/Pages/Content/ppoverview.xaml" />
+                <mui:Link DisplayName="blockliste" Source="/Pages/Content/blocklist.xaml" />
+                <mui:Link DisplayName="zimmerbelegung" Source="/Pages/Content/room_occupancy.xaml" />
+            </mui:ModernTab.Links -->
+        </mui:ModernTab>
+    </Grid>
+</UserControl>

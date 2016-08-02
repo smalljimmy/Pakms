@@ -1,0 +1,795 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PaKModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="PaKModelStoreContainer">
+    <EntitySet Name="accounts" EntityType="PaKModel.Store.accounts" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="acct_status" EntityType="PaKModel.Store.acct_status" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="articles" EntityType="PaKModel.Store.articles" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="booking_types" EntityType="PaKModel.Store.booking_types" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="bookings" EntityType="PaKModel.Store.bookings" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="c_art_pricetype" EntityType="PaKModel.Store.c_art_pricetype" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="c_pers_data_svc" EntityType="PaKModel.Store.c_pers_data_svc" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="clearances" EntityType="PaKModel.Store.clearances" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="daily_run" EntityType="PaKModel.Store.daily_run" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="nations" EntityType="PaKModel.Store.nations" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="pers_data" EntityType="PaKModel.Store.pers_data" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="pers_svc" EntityType="PaKModel.Store.pers_svc" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="price_type" EntityType="PaKModel.Store.price_type" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="prod_grp" EntityType="PaKModel.Store.prod_grp" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="rental_tariff_arch" EntityType="PaKModel.Store.rental_tariff_arch" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="rental_tariffs" EntityType="PaKModel.Store.rental_tariffs" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="roles" EntityType="PaKModel.Store.roles" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="room_types" EntityType="PaKModel.Store.room_types" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="rooms" EntityType="PaKModel.Store.rooms" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="settings" EntityType="PaKModel.Store.settings" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="users" EntityType="PaKModel.Store.users" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="view_role" EntityType="PaKModel.Store.view_role" store:Type="Tables" store:Schema="dbo" store:Name="view_role">
+      <DefiningQuery>SELECT 
+      [view_role].[view_id] AS [view_id], 
+      [view_role].[role_id] AS [role_id]
+      FROM [dbo].[view_role] AS [view_role]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="wpf_views" EntityType="PaKModel.Store.wpf_views" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="acct_bookings" EntityType="PaKModel.Store.acct_bookings" store:Type="Views" store:Schema="dbo" store:Name="acct_bookings">
+      <DefiningQuery>SELECT 
+      [acct_bookings].[act_lastname] AS [act_lastname], 
+      [acct_bookings].[act_firstname] AS [act_firstname], 
+      [acct_bookings].[act_pseudonym] AS [act_pseudonym], 
+      [acct_bookings].[act_birthday] AS [act_birthday], 
+      [acct_bookings].[act_birthplace] AS [act_birthplace], 
+      [acct_bookings].[iso_2] AS [iso_2], 
+      [acct_bookings].[act_passport_id] AS [act_passport_id], 
+      [acct_bookings].[type_key] AS [type_key], 
+      [acct_bookings].[ast_key] AS [ast_key], 
+      [acct_bookings].[tariff_id] AS [tariff_id], 
+      [acct_bookings].[day_id] AS [day_id], 
+      [acct_bookings].[room_number] AS [room_number], 
+      [acct_bookings].[tax_relevant] AS [tax_relevant]
+      FROM [dbo].[acct_bookings] AS [acct_bookings]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="birthdays" EntityType="PaKModel.Store.birthdays" store:Type="Views" store:Schema="dbo" store:Name="birthdays">
+      <DefiningQuery>SELECT 
+      [birthdays].[bday] AS [bday], 
+      [birthdays].[birthday] AS [birthday], 
+      [birthdays].[name] AS [name], 
+      [birthdays].[room_number] AS [room_number], 
+      [birthdays].[status] AS [status]
+      FROM [dbo].[birthdays] AS [birthdays]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="block_list" EntityType="PaKModel.Store.block_list" store:Type="Views" store:Schema="dbo" store:Name="block_list">
+      <DefiningQuery>SELECT 
+      [block_list].[room_number] AS [room_number], 
+      [block_list].[status] AS [status], 
+      [block_list].[name] AS [name], 
+      [block_list].[block] AS [block], 
+      [block_list].[credit] AS [credit], 
+      [block_list].[daily_bill] AS [daily_bill]
+      FROM [dbo].[block_list] AS [block_list]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="revenues" EntityType="PaKModel.Store.revenues" store:Type="Views" store:Schema="dbo" store:Name="revenues">
+      <DefiningQuery>SELECT 
+      [revenues].[bkg_id] AS [bkg_id], 
+      [revenues].[bkg_date] AS [bkg_date], 
+      [revenues].[bkg_amount] AS [bkg_amount], 
+      [revenues].[btp_id] AS [btp_id], 
+      [revenues].[art_name] AS [art_name], 
+      [revenues].[pgr_name] AS [pgr_name], 
+      [revenues].[art_id] AS [art_id], 
+      [revenues].[pgr_id] AS [pgr_id]
+      FROM [dbo].[revenues] AS [revenues]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="room_occupancy" EntityType="PaKModel.Store.room_occupancy" store:Type="Views" store:Schema="dbo" store:Name="room_occupancy">
+      <DefiningQuery>SELECT 
+      [room_occupancy].[room_number] AS [room_number], 
+      [room_occupancy].[account_id] AS [account_id], 
+      [room_occupancy].[pseudonym] AS [pseudonym], 
+      [room_occupancy].[notes] AS [notes], 
+      [room_occupancy].[tariff] AS [tariff]
+      FROM [dbo].[room_occupancy] AS [room_occupancy]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_accounts_acct_status" Association="PaKModel.Store.FK_accounts_acct_status">
+      <End Role="acct_status" EntitySet="acct_status" />
+      <End Role="accounts" EntitySet="accounts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_accounts_nations" Association="PaKModel.Store.FK_accounts_nations">
+      <End Role="nations" EntitySet="nations" />
+      <End Role="accounts" EntitySet="accounts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_accounts_rental_tariffs" Association="PaKModel.Store.FK_accounts_rental_tariffs">
+      <End Role="rental_tariffs" EntitySet="rental_tariffs" />
+      <End Role="accounts" EntitySet="accounts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_accounts_rooms" Association="PaKModel.Store.FK_accounts_rooms">
+      <End Role="rooms" EntitySet="rooms" />
+      <End Role="accounts" EntitySet="accounts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_articles_prod_grp" Association="PaKModel.Store.FK_articles_prod_grp">
+      <End Role="prod_grp" EntitySet="prod_grp" />
+      <End Role="articles" EntitySet="articles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_bookings_accounts" Association="PaKModel.Store.FK_bookings_accounts">
+      <End Role="accounts" EntitySet="accounts" />
+      <End Role="bookings" EntitySet="bookings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_bookings_articles" Association="PaKModel.Store.FK_bookings_articles">
+      <End Role="articles" EntitySet="articles" />
+      <End Role="bookings" EntitySet="bookings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_bookings_booking_types" Association="PaKModel.Store.FK_bookings_booking_types">
+      <End Role="booking_types" EntitySet="booking_types" />
+      <End Role="bookings" EntitySet="bookings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_bookings_clearances" Association="PaKModel.Store.FK_bookings_clearances">
+      <End Role="clearances" EntitySet="clearances" />
+      <End Role="bookings" EntitySet="bookings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_bookings_daily_run" Association="PaKModel.Store.FK_bookings_daily_run">
+      <End Role="daily_run" EntitySet="daily_run" />
+      <End Role="bookings" EntitySet="bookings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_bookings_rental_tariffs" Association="PaKModel.Store.FK_bookings_rental_tariffs">
+      <End Role="rental_tariffs" EntitySet="rental_tariffs" />
+      <End Role="bookings" EntitySet="bookings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_bookings_rooms" Association="PaKModel.Store.FK_bookings_rooms">
+      <End Role="rooms" EntitySet="rooms" />
+      <End Role="bookings" EntitySet="bookings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_bookings_users" Association="PaKModel.Store.FK_bookings_users">
+      <End Role="users" EntitySet="users" />
+      <End Role="bookings" EntitySet="bookings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_c_art_pricetype_articles" Association="PaKModel.Store.FK_c_art_pricetype_articles">
+      <End Role="articles" EntitySet="articles" />
+      <End Role="c_art_pricetype" EntitySet="c_art_pricetype" />
+    </AssociationSet>
+    <AssociationSet Name="FK_c_art_pricetype_price_type" Association="PaKModel.Store.FK_c_art_pricetype_price_type">
+      <End Role="price_type" EntitySet="price_type" />
+      <End Role="c_art_pricetype" EntitySet="c_art_pricetype" />
+    </AssociationSet>
+    <AssociationSet Name="FK_c_pers_data_svc_pers_svc" Association="PaKModel.Store.FK_c_pers_data_svc_pers_svc">
+      <End Role="pers_svc" EntitySet="pers_svc" />
+      <End Role="c_pers_data_svc" EntitySet="c_pers_data_svc" />
+    </AssociationSet>
+    <AssociationSet Name="FK_clearances_users" Association="PaKModel.Store.FK_clearances_users">
+      <End Role="users" EntitySet="users" />
+      <End Role="clearances" EntitySet="clearances" />
+    </AssociationSet>
+    <AssociationSet Name="FK_pers_data_accounts" Association="PaKModel.Store.FK_pers_data_accounts">
+      <End Role="accounts" EntitySet="accounts" />
+      <End Role="pers_data" EntitySet="pers_data" />
+    </AssociationSet>
+    <AssociationSet Name="FK_rental_tariff_arch_rental_tariffs" Association="PaKModel.Store.FK_rental_tariff_arch_rental_tariffs">
+      <End Role="rental_tariffs" EntitySet="rental_tariffs" />
+      <End Role="rental_tariff_arch" EntitySet="rental_tariff_arch" />
+    </AssociationSet>
+    <AssociationSet Name="FK_rooms_room_types" Association="PaKModel.Store.FK_rooms_room_types">
+      <End Role="room_types" EntitySet="room_types" />
+      <End Role="rooms" EntitySet="rooms" />
+    </AssociationSet>
+    <AssociationSet Name="FK_users_roles" Association="PaKModel.Store.FK_users_roles">
+      <End Role="roles" EntitySet="roles" />
+      <End Role="users" EntitySet="users" />
+    </AssociationSet>
+    <AssociationSet Name="FK_view_role_roles" Association="PaKModel.Store.FK_view_role_roles">
+      <End Role="roles" EntitySet="roles" />
+      <End Role="view_role" EntitySet="view_role" />
+    </AssociationSet>
+    <AssociationSet Name="FK_view_role_wpf_views" Association="PaKModel.Store.FK_view_role_wpf_views">
+      <End Role="wpf_views" EntitySet="wpf_views" />
+      <End Role="view_role" EntitySet="view_role" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="accounts">
+    <Key>
+      <PropertyRef Name="act_id" />
+    </Key>
+    <Property Name="act_id" Type="int" Nullable="false" />
+    <Property Name="act_lastname" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="act_firstname" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="act_pseudonym" Type="varchar" MaxLength="50" />
+    <Property Name="nation_id" Type="int" />
+    <Property Name="act_birthday" Type="date" />
+    <Property Name="act_birthplace" Type="varchar" MaxLength="50" />
+    <Property Name="act_passport_id" Type="varchar" MaxLength="50" />
+    <Property Name="act_address" Type="varchar" MaxLength="50" />
+    <Property Name="act_zip" Type="varchar" MaxLength="20" />
+    <Property Name="act_city" Type="varchar" MaxLength="50" />
+    <Property Name="ast_id" Type="int" />
+    <Property Name="room_id" Type="int" />
+    <Property Name="act_deposit" Type="decimal" Nullable="false" Precision="6" Scale="2" />
+    <Property Name="tariff_id" Type="int" Nullable="false" />
+    <Property Name="act_active" Type="bit" Nullable="false" />
+    <Property Name="act_phone" Type="varchar" MaxLength="50" />
+    <Property Name="act_email" Type="varchar" MaxLength="50" />
+    <Property Name="act_notes" Type="varchar" MaxLength="5000" />
+    <Property Name="act_balance" Type="decimal" Precision="6" Scale="2" />
+    <Property Name="act_gender" Type="bit" />
+  </EntityType>
+  <EntityType Name="acct_status">
+    <Key>
+      <PropertyRef Name="ast_id" />
+    </Key>
+    <Property Name="ast_id" Type="int" Nullable="false" />
+    <Property Name="ast_name" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="ast_key" Type="varchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="articles">
+    <Key>
+      <PropertyRef Name="art_id" />
+    </Key>
+    <Property Name="art_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="art_name" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="pgr_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="booking_types">
+    <Key>
+      <PropertyRef Name="btp_id" />
+    </Key>
+    <Property Name="btp_id" Type="int" Nullable="false" />
+    <Property Name="btp_name" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="btp_key" Type="varchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="bookings">
+    <Key>
+      <PropertyRef Name="bkg_id" />
+    </Key>
+    <Property Name="bkg_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="bkg_date" Type="datetime" Nullable="false" />
+    <Property Name="act_id" Type="int" Nullable="false" />
+    <Property Name="btp_id" Type="int" Nullable="false" />
+    <Property Name="bkg_amount" Type="decimal" Nullable="false" Precision="6" Scale="2" />
+    <Property Name="usr_id" Type="int" Nullable="false" />
+    <Property Name="clr_id" Type="int" />
+    <Property Name="room_id" Type="int" />
+    <Property Name="art_id" Type="int" />
+    <Property Name="tariff_id" Type="int" />
+    <Property Name="day_id" Type="int" />
+    <Property Name="bkg_comment" Type="varchar" MaxLength="250" />
+    <Property Name="tax_relevant" Type="bit" />
+  </EntityType>
+  <EntityType Name="c_art_pricetype">
+    <Key>
+      <PropertyRef Name="apt_id" />
+    </Key>
+    <Property Name="apt_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="art_id" Type="int" Nullable="false" />
+    <Property Name="ptp_id" Type="int" Nullable="false" />
+    <Property Name="apt_price" Type="decimal" Nullable="false" Precision="6" Scale="2" />
+  </EntityType>
+  <EntityType Name="c_pers_data_svc">
+    <Key>
+      <PropertyRef Name="pds_id" />
+    </Key>
+    <Property Name="pds_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="svc_id" Type="int" Nullable="false" />
+    <Property Name="act_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="clearances">
+    <Key>
+      <PropertyRef Name="clr_id" />
+    </Key>
+    <Property Name="clr_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="clr_date" Type="datetime" Nullable="false" />
+    <Property Name="usr_id" Type="int" Nullable="false" />
+    <Property Name="station_id" Type="int" Nullable="false" />
+    <Property Name="clr_sum" Type="decimal" Nullable="false" Precision="6" Scale="2" />
+  </EntityType>
+  <EntityType Name="daily_run">
+    <Key>
+      <PropertyRef Name="day_id" />
+    </Key>
+    <Property Name="day_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="day" Type="date" Nullable="false" />
+    <Property Name="start_time" Type="datetime" />
+    <Property Name="end_time" Type="datetime" />
+  </EntityType>
+  <EntityType Name="nations">
+    <Key>
+      <PropertyRef Name="nation_id" />
+    </Key>
+    <Property Name="nation_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="nation" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="iso_2" Type="varchar" Nullable="false" MaxLength="2" />
+    <Property Name="iso_3" Type="varchar" MaxLength="3" />
+  </EntityType>
+  <EntityType Name="pers_data">
+    <Key>
+      <PropertyRef Name="act_id" />
+    </Key>
+    <Property Name="act_id" Type="int" Nullable="false" />
+    <Property Name="pdt_height" Type="varchar" MaxLength="10" />
+    <Property Name="pdt_weight" Type="varchar" MaxLength="10" />
+    <Property Name="pdt_hair_color" Type="varchar" MaxLength="20" />
+    <Property Name="pdt_body_color" Type="varchar" MaxLength="20" />
+    <Property Name="pdt_bust_size" Type="varchar" MaxLength="20" />
+    <Property Name="pdt_tattoo" Type="bit" Nullable="false" />
+    <Property Name="pdt_piercing" Type="bit" Nullable="false" />
+    <Property Name="pdt_shaved" Type="bit" Nullable="false" />
+    <Property Name="pdt_reference" Type="varchar" MaxLength="100" />
+    <Property Name="pdt_experience" Type="bit" Nullable="false" />
+    <Property Name="pdt_regular_customers" Type="bit" Nullable="false" />
+    <Property Name="pdt_spec_services" Type="varchar" MaxLength="200" />
+    <Property Name="pdt_duedo_tax" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="pers_svc">
+    <Key>
+      <PropertyRef Name="svc_id" />
+    </Key>
+    <Property Name="svc_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="svc_name" Type="varchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="price_type">
+    <Key>
+      <PropertyRef Name="ptp_id" />
+    </Key>
+    <Property Name="ptp_id" Type="int" Nullable="false" />
+    <Property Name="ptp_name" Type="varchar" Nullable="false" MaxLength="25" />
+    <Property Name="ptp_key" Type="varchar" Nullable="false" MaxLength="25" />
+  </EntityType>
+  <EntityType Name="prod_grp">
+    <Key>
+      <PropertyRef Name="pgr_id" />
+    </Key>
+    <Property Name="pgr_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="pgr_name" Type="varchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="rental_tariff_arch">
+    <Key>
+      <PropertyRef Name="rta_id" />
+    </Key>
+    <Property Name="rta_id" Type="int" Nullable="false" />
+    <Property Name="tariff_id" Type="int" Nullable="false" />
+    <Property Name="rta_amount" Type="decimal" Nullable="false" Precision="6" Scale="2" />
+    <Property Name="rta_timestamp" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="rental_tariffs">
+    <Key>
+      <PropertyRef Name="tariff_id" />
+    </Key>
+    <Property Name="tariff_id" Type="int" Nullable="false" />
+    <Property Name="tar_name" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="tar_amount" Type="decimal" Nullable="false" Precision="6" Scale="2" />
+    <Property Name="tar_crea_date" Type="datetime" />
+    <Property Name="tar_mod_date" Type="datetime" />
+    <Property Name="tar_tax" Type="bit" Nullable="false" />
+    <Property Name="tar_order" Type="int" />
+  </EntityType>
+  <EntityType Name="roles">
+    <Key>
+      <PropertyRef Name="role_id" />
+    </Key>
+    <Property Name="role_id" Type="int" Nullable="false" />
+    <Property Name="role_name" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="role_key" Type="varchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="room_types">
+    <Key>
+      <PropertyRef Name="roomtype_id" />
+    </Key>
+    <Property Name="roomtype_id" Type="int" Nullable="false" />
+    <Property Name="type_name" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="type_key" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="rooms">
+    <Key>
+      <PropertyRef Name="room_id" />
+    </Key>
+    <Property Name="room_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="room_number" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="roomtype_id" Type="int" Nullable="false" />
+    <Property Name="room_status" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="settings">
+    <Key>
+      <PropertyRef Name="set_id" />
+    </Key>
+    <Property Name="set_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="set_key" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="set_value" Type="varchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="users">
+    <Key>
+      <PropertyRef Name="usr_id" />
+    </Key>
+    <Property Name="usr_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="role_id" Type="int" Nullable="false" />
+    <Property Name="usr_name" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="usr_passwd" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="usr_lastname" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="usr_firstname" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="usr_phone" Type="varchar" MaxLength="20" />
+    <Property Name="usr_mobilephone" Type="varchar" MaxLength="20" />
+    <Property Name="theme" Type="varchar" MaxLength="50" />
+    <Property Name="fontsize" Type="varchar" MaxLength="50" />
+    <Property Name="color" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'PaK.dbo.view_role' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="view_role">
+    <Key>
+      <PropertyRef Name="view_id" />
+      <PropertyRef Name="role_id" />
+    </Key>
+    <Property Name="view_id" Type="int" Nullable="false" />
+    <Property Name="role_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="wpf_views">
+    <Key>
+      <PropertyRef Name="view_id" />
+    </Key>
+    <Property Name="view_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="view_name" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="view_path" Type="varchar" MaxLength="50" />
+    <Property Name="view_desc" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'PaK.dbo.acct_bookings' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="acct_bookings">
+    <Key>
+      <PropertyRef Name="act_lastname" />
+      <PropertyRef Name="act_firstname" />
+      <PropertyRef Name="iso_2" />
+      <PropertyRef Name="ast_key" />
+      <PropertyRef Name="room_number" />
+    </Key>
+    <Property Name="act_lastname" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="act_firstname" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="act_pseudonym" Type="varchar" MaxLength="50" />
+    <Property Name="act_birthday" Type="date" />
+    <Property Name="act_birthplace" Type="varchar" MaxLength="50" />
+    <Property Name="iso_2" Type="varchar" Nullable="false" MaxLength="2" />
+    <Property Name="act_passport_id" Type="varchar" MaxLength="50" />
+    <Property Name="type_key" Type="varchar" MaxLength="100" />
+    <Property Name="ast_key" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="tariff_id" Type="int" />
+    <Property Name="day_id" Type="int" />
+    <Property Name="room_number" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="tax_relevant" Type="bit" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'PaK.dbo.birthdays' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="birthdays">
+    <Key>
+      <PropertyRef Name="room_number" />
+      <PropertyRef Name="status" />
+    </Key>
+    <Property Name="bday" Type="date" />
+    <Property Name="birthday" Type="varchar" MaxLength="10" />
+    <Property Name="name" Type="varchar" MaxLength="101" />
+    <Property Name="room_number" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="status" Type="varchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'PaK.dbo.block_list' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="block_list">
+    <Key>
+      <PropertyRef Name="room_number" />
+      <PropertyRef Name="status" />
+    </Key>
+    <Property Name="room_number" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="status" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="name" Type="varchar" MaxLength="101" />
+    <Property Name="block" Type="decimal" Precision="6" Scale="2" />
+    <Property Name="credit" Type="decimal" Precision="6" Scale="2" />
+    <Property Name="daily_bill" Type="decimal" Precision="7" Scale="2" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'PaK.dbo.revenues' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="revenues">
+    <Key>
+      <PropertyRef Name="bkg_id" />
+      <PropertyRef Name="bkg_date" />
+      <PropertyRef Name="bkg_amount" />
+      <PropertyRef Name="btp_id" />
+      <PropertyRef Name="art_name" />
+      <PropertyRef Name="pgr_name" />
+      <PropertyRef Name="pgr_id" />
+    </Key>
+    <Property Name="bkg_id" Type="int" Nullable="false" />
+    <Property Name="bkg_date" Type="datetime" Nullable="false" />
+    <Property Name="bkg_amount" Type="decimal" Nullable="false" Precision="6" Scale="2" />
+    <Property Name="btp_id" Type="int" Nullable="false" />
+    <Property Name="art_name" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="pgr_name" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="art_id" Type="int" />
+    <Property Name="pgr_id" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'PaK.dbo.room_occupancy' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="room_occupancy">
+    <Key>
+      <PropertyRef Name="room_number" />
+      <PropertyRef Name="account_id" />
+      <PropertyRef Name="pseudonym" />
+      <PropertyRef Name="notes" />
+      <PropertyRef Name="tariff" />
+    </Key>
+    <Property Name="room_number" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="account_id" Type="varchar" Nullable="false" MaxLength="10" />
+    <Property Name="pseudonym" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="notes" Type="varchar" Nullable="false" MaxLength="1" />
+    <Property Name="tariff" Type="varchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK_accounts_acct_status">
+    <End Role="acct_status" Type="PaKModel.Store.acct_status" Multiplicity="0..1" />
+    <End Role="accounts" Type="PaKModel.Store.accounts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="acct_status">
+        <PropertyRef Name="ast_id" />
+      </Principal>
+      <Dependent Role="accounts">
+        <PropertyRef Name="ast_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_accounts_nations">
+    <End Role="nations" Type="PaKModel.Store.nations" Multiplicity="0..1" />
+    <End Role="accounts" Type="PaKModel.Store.accounts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="nations">
+        <PropertyRef Name="nation_id" />
+      </Principal>
+      <Dependent Role="accounts">
+        <PropertyRef Name="nation_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_accounts_rental_tariffs">
+    <End Role="rental_tariffs" Type="PaKModel.Store.rental_tariffs" Multiplicity="1" />
+    <End Role="accounts" Type="PaKModel.Store.accounts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="rental_tariffs">
+        <PropertyRef Name="tariff_id" />
+      </Principal>
+      <Dependent Role="accounts">
+        <PropertyRef Name="tariff_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_accounts_rooms">
+    <End Role="rooms" Type="PaKModel.Store.rooms" Multiplicity="0..1" />
+    <End Role="accounts" Type="PaKModel.Store.accounts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="rooms">
+        <PropertyRef Name="room_id" />
+      </Principal>
+      <Dependent Role="accounts">
+        <PropertyRef Name="room_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_articles_prod_grp">
+    <End Role="prod_grp" Type="PaKModel.Store.prod_grp" Multiplicity="1" />
+    <End Role="articles" Type="PaKModel.Store.articles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="prod_grp">
+        <PropertyRef Name="pgr_id" />
+      </Principal>
+      <Dependent Role="articles">
+        <PropertyRef Name="pgr_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_bookings_accounts">
+    <End Role="accounts" Type="PaKModel.Store.accounts" Multiplicity="1" />
+    <End Role="bookings" Type="PaKModel.Store.bookings" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="accounts">
+        <PropertyRef Name="act_id" />
+      </Principal>
+      <Dependent Role="bookings">
+        <PropertyRef Name="act_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_bookings_articles">
+    <End Role="articles" Type="PaKModel.Store.articles" Multiplicity="0..1" />
+    <End Role="bookings" Type="PaKModel.Store.bookings" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="articles">
+        <PropertyRef Name="art_id" />
+      </Principal>
+      <Dependent Role="bookings">
+        <PropertyRef Name="art_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_bookings_booking_types">
+    <End Role="booking_types" Type="PaKModel.Store.booking_types" Multiplicity="1" />
+    <End Role="bookings" Type="PaKModel.Store.bookings" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="booking_types">
+        <PropertyRef Name="btp_id" />
+      </Principal>
+      <Dependent Role="bookings">
+        <PropertyRef Name="btp_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_bookings_clearances">
+    <End Role="clearances" Type="PaKModel.Store.clearances" Multiplicity="0..1" />
+    <End Role="bookings" Type="PaKModel.Store.bookings" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="clearances">
+        <PropertyRef Name="clr_id" />
+      </Principal>
+      <Dependent Role="bookings">
+        <PropertyRef Name="clr_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_bookings_daily_run">
+    <End Role="daily_run" Type="PaKModel.Store.daily_run" Multiplicity="0..1" />
+    <End Role="bookings" Type="PaKModel.Store.bookings" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="daily_run">
+        <PropertyRef Name="day_id" />
+      </Principal>
+      <Dependent Role="bookings">
+        <PropertyRef Name="day_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_bookings_rental_tariffs">
+    <End Role="rental_tariffs" Type="PaKModel.Store.rental_tariffs" Multiplicity="0..1" />
+    <End Role="bookings" Type="PaKModel.Store.bookings" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="rental_tariffs">
+        <PropertyRef Name="tariff_id" />
+      </Principal>
+      <Dependent Role="bookings">
+        <PropertyRef Name="tariff_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_bookings_rooms">
+    <End Role="rooms" Type="PaKModel.Store.rooms" Multiplicity="0..1" />
+    <End Role="bookings" Type="PaKModel.Store.bookings" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="rooms">
+        <PropertyRef Name="room_id" />
+      </Principal>
+      <Dependent Role="bookings">
+        <PropertyRef Name="room_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_bookings_users">
+    <End Role="users" Type="PaKModel.Store.users" Multiplicity="1" />
+    <End Role="bookings" Type="PaKModel.Store.bookings" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="usr_id" />
+      </Principal>
+      <Dependent Role="bookings">
+        <PropertyRef Name="usr_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_c_art_pricetype_articles">
+    <End Role="articles" Type="PaKModel.Store.articles" Multiplicity="1" />
+    <End Role="c_art_pricetype" Type="PaKModel.Store.c_art_pricetype" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="articles">
+        <PropertyRef Name="art_id" />
+      </Principal>
+      <Dependent Role="c_art_pricetype">
+        <PropertyRef Name="art_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_c_art_pricetype_price_type">
+    <End Role="price_type" Type="PaKModel.Store.price_type" Multiplicity="1" />
+    <End Role="c_art_pricetype" Type="PaKModel.Store.c_art_pricetype" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="price_type">
+        <PropertyRef Name="ptp_id" />
+      </Principal>
+      <Dependent Role="c_art_pricetype">
+        <PropertyRef Name="ptp_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_c_pers_data_svc_pers_svc">
+    <End Role="pers_svc" Type="PaKModel.Store.pers_svc" Multiplicity="1" />
+    <End Role="c_pers_data_svc" Type="PaKModel.Store.c_pers_data_svc" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="pers_svc">
+        <PropertyRef Name="svc_id" />
+      </Principal>
+      <Dependent Role="c_pers_data_svc">
+        <PropertyRef Name="svc_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_clearances_users">
+    <End Role="users" Type="PaKModel.Store.users" Multiplicity="1" />
+    <End Role="clearances" Type="PaKModel.Store.clearances" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="usr_id" />
+      </Principal>
+      <Dependent Role="clearances">
+        <PropertyRef Name="usr_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_pers_data_accounts">
+    <End Role="accounts" Type="PaKModel.Store.accounts" Multiplicity="1" />
+    <End Role="pers_data" Type="PaKModel.Store.pers_data" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="accounts">
+        <PropertyRef Name="act_id" />
+      </Principal>
+      <Dependent Role="pers_data">
+        <PropertyRef Name="act_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_rental_tariff_arch_rental_tariffs">
+    <End Role="rental_tariffs" Type="PaKModel.Store.rental_tariffs" Multiplicity="1" />
+    <End Role="rental_tariff_arch" Type="PaKModel.Store.rental_tariff_arch" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="rental_tariffs">
+        <PropertyRef Name="tariff_id" />
+      </Principal>
+      <Dependent Role="rental_tariff_arch">
+        <PropertyRef Name="tariff_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_rooms_room_types">
+    <End Role="room_types" Type="PaKModel.Store.room_types" Multiplicity="1" />
+    <End Role="rooms" Type="PaKModel.Store.rooms" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="room_types">
+        <PropertyRef Name="roomtype_id" />
+      </Principal>
+      <Dependent Role="rooms">
+        <PropertyRef Name="roomtype_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_users_roles">
+    <End Role="roles" Type="PaKModel.Store.roles" Multiplicity="1" />
+    <End Role="users" Type="PaKModel.Store.users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="roles">
+        <PropertyRef Name="role_id" />
+      </Principal>
+      <Dependent Role="users">
+        <PropertyRef Name="role_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_view_role_roles">
+    <End Role="roles" Type="PaKModel.Store.roles" Multiplicity="1" />
+    <End Role="view_role" Type="PaKModel.Store.view_role" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="roles">
+        <PropertyRef Name="role_id" />
+      </Principal>
+      <Dependent Role="view_role">
+        <PropertyRef Name="role_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_view_role_wpf_views">
+    <End Role="wpf_views" Type="PaKModel.Store.wpf_views" Multiplicity="1" />
+    <End Role="view_role" Type="PaKModel.Store.view_role" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="wpf_views">
+        <PropertyRef Name="view_id" />
+      </Principal>
+      <Dependent Role="view_role">
+        <PropertyRef Name="view_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

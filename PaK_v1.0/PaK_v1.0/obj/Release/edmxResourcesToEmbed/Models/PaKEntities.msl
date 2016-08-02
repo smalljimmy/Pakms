@@ -1,0 +1,335 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="PaKModelStoreContainer" CdmEntityContainer="PaKEntities">
+    <EntitySetMapping Name="acct_status">
+      <EntityTypeMapping TypeName="PaKModel.acct_status">
+        <MappingFragment StoreEntitySet="acct_status">
+          <ScalarProperty Name="ast_key" ColumnName="ast_key" />
+          <ScalarProperty Name="ast_name" ColumnName="ast_name" />
+          <ScalarProperty Name="ast_id" ColumnName="ast_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="booking_types">
+      <EntityTypeMapping TypeName="PaKModel.booking_types">
+        <MappingFragment StoreEntitySet="booking_types">
+          <ScalarProperty Name="btp_key" ColumnName="btp_key" />
+          <ScalarProperty Name="btp_name" ColumnName="btp_name" />
+          <ScalarProperty Name="btp_id" ColumnName="btp_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="c_pers_data_svc">
+      <EntityTypeMapping TypeName="PaKModel.c_pers_data_svc">
+        <MappingFragment StoreEntitySet="c_pers_data_svc">
+          <ScalarProperty Name="act_id" ColumnName="act_id" />
+          <ScalarProperty Name="svc_id" ColumnName="svc_id" />
+          <ScalarProperty Name="pds_id" ColumnName="pds_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="nations">
+      <EntityTypeMapping TypeName="PaKModel.nations">
+        <MappingFragment StoreEntitySet="nations">
+          <ScalarProperty Name="iso_3" ColumnName="iso_3" />
+          <ScalarProperty Name="iso_2" ColumnName="iso_2" />
+          <ScalarProperty Name="nation" ColumnName="nation" />
+          <ScalarProperty Name="nation_id" ColumnName="nation_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="pers_svc">
+      <EntityTypeMapping TypeName="PaKModel.pers_svc">
+        <MappingFragment StoreEntitySet="pers_svc">
+          <ScalarProperty Name="svc_name" ColumnName="svc_name" />
+          <ScalarProperty Name="svc_id" ColumnName="svc_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="rental_tariff_arch">
+      <EntityTypeMapping TypeName="PaKModel.rental_tariff_arch">
+        <MappingFragment StoreEntitySet="rental_tariff_arch">
+          <ScalarProperty Name="rta_timestamp" ColumnName="rta_timestamp" />
+          <ScalarProperty Name="rta_amount" ColumnName="rta_amount" />
+          <ScalarProperty Name="tariff_id" ColumnName="tariff_id" />
+          <ScalarProperty Name="rta_id" ColumnName="rta_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="room_types">
+      <EntityTypeMapping TypeName="PaKModel.room_types">
+        <MappingFragment StoreEntitySet="room_types">
+          <ScalarProperty Name="type_key" ColumnName="type_key" />
+          <ScalarProperty Name="type_name" ColumnName="type_name" />
+          <ScalarProperty Name="roomtype_id" ColumnName="roomtype_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="rooms">
+      <EntityTypeMapping TypeName="PaKModel.rooms">
+        <MappingFragment StoreEntitySet="rooms">
+          <ScalarProperty Name="room_status" ColumnName="room_status" />
+          <ScalarProperty Name="roomtype_id" ColumnName="roomtype_id" />
+          <ScalarProperty Name="room_number" ColumnName="room_number" />
+          <ScalarProperty Name="room_id" ColumnName="room_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="clearances">
+      <EntityTypeMapping TypeName="PaKModel.clearances">
+        <MappingFragment StoreEntitySet="clearances">
+          <ScalarProperty Name="clr_sum" ColumnName="clr_sum" />
+          <ScalarProperty Name="station_id" ColumnName="station_id" />
+          <ScalarProperty Name="usr_id" ColumnName="usr_id" />
+          <ScalarProperty Name="clr_date" ColumnName="clr_date" />
+          <ScalarProperty Name="clr_id" ColumnName="clr_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="pers_data">
+      <EntityTypeMapping TypeName="PaKModel.pers_data">
+        <MappingFragment StoreEntitySet="pers_data">
+          <ScalarProperty Name="pdt_duedo_tax" ColumnName="pdt_duedo_tax" />
+          <ScalarProperty Name="pdt_spec_services" ColumnName="pdt_spec_services" />
+          <ScalarProperty Name="pdt_regular_customers" ColumnName="pdt_regular_customers" />
+          <ScalarProperty Name="pdt_experience" ColumnName="pdt_experience" />
+          <ScalarProperty Name="pdt_reference" ColumnName="pdt_reference" />
+          <ScalarProperty Name="pdt_shaved" ColumnName="pdt_shaved" />
+          <ScalarProperty Name="pdt_piercing" ColumnName="pdt_piercing" />
+          <ScalarProperty Name="pdt_tattoo" ColumnName="pdt_tattoo" />
+          <ScalarProperty Name="pdt_bust_size" ColumnName="pdt_bust_size" />
+          <ScalarProperty Name="pdt_body_color" ColumnName="pdt_body_color" />
+          <ScalarProperty Name="pdt_hair_color" ColumnName="pdt_hair_color" />
+          <ScalarProperty Name="pdt_weight" ColumnName="pdt_weight" />
+          <ScalarProperty Name="pdt_height" ColumnName="pdt_height" />
+          <ScalarProperty Name="act_id" ColumnName="act_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="settings">
+      <EntityTypeMapping TypeName="PaKModel.settings">
+        <MappingFragment StoreEntitySet="settings">
+          <ScalarProperty Name="set_value" ColumnName="set_value" />
+          <ScalarProperty Name="set_key" ColumnName="set_key" />
+          <ScalarProperty Name="set_id" ColumnName="set_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="daily_run">
+      <EntityTypeMapping TypeName="PaKModel.daily_run">
+        <MappingFragment StoreEntitySet="daily_run">
+          <ScalarProperty Name="end_time" ColumnName="end_time" />
+          <ScalarProperty Name="start_time" ColumnName="start_time" />
+          <ScalarProperty Name="day" ColumnName="day" />
+          <ScalarProperty Name="day_id" ColumnName="day_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="users">
+      <EntityTypeMapping TypeName="PaKModel.users">
+        <MappingFragment StoreEntitySet="users">
+          <ScalarProperty Name="color" ColumnName="color" />
+          <ScalarProperty Name="fontsize" ColumnName="fontsize" />
+          <ScalarProperty Name="theme" ColumnName="theme" />
+          <ScalarProperty Name="usr_mobilephone" ColumnName="usr_mobilephone" />
+          <ScalarProperty Name="usr_phone" ColumnName="usr_phone" />
+          <ScalarProperty Name="usr_firstname" ColumnName="usr_firstname" />
+          <ScalarProperty Name="usr_lastname" ColumnName="usr_lastname" />
+          <ScalarProperty Name="usr_passwd" ColumnName="usr_passwd" />
+          <ScalarProperty Name="usr_name" ColumnName="usr_name" />
+          <ScalarProperty Name="role_id" ColumnName="role_id" />
+          <ScalarProperty Name="usr_id" ColumnName="usr_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="roles">
+      <EntityTypeMapping TypeName="PaKModel.roles">
+        <MappingFragment StoreEntitySet="roles">
+          <ScalarProperty Name="role_key" ColumnName="role_key" />
+          <ScalarProperty Name="role_name" ColumnName="role_name" />
+          <ScalarProperty Name="role_id" ColumnName="role_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="wpf_views">
+      <EntityTypeMapping TypeName="PaKModel.wpf_views">
+        <MappingFragment StoreEntitySet="wpf_views">
+          <ScalarProperty Name="view_desc" ColumnName="view_desc" />
+          <ScalarProperty Name="view_path" ColumnName="view_path" />
+          <ScalarProperty Name="view_name" ColumnName="view_name" />
+          <ScalarProperty Name="view_id" ColumnName="view_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="view_role" TypeName="PaKModel.view_role" StoreEntitySet="view_role">
+      <EndProperty Name="wpf_views">
+        <ScalarProperty Name="view_id" ColumnName="view_id" />
+      </EndProperty>
+      <EndProperty Name="roles">
+        <ScalarProperty Name="role_id" ColumnName="role_id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <EntitySetMapping Name="room_occupancy">
+      <EntityTypeMapping TypeName="PaKModel.room_occupancy">
+        <MappingFragment StoreEntitySet="room_occupancy">
+          <ScalarProperty Name="tariff" ColumnName="tariff" />
+          <ScalarProperty Name="notes" ColumnName="notes" />
+          <ScalarProperty Name="pseudonym" ColumnName="pseudonym" />
+          <ScalarProperty Name="account_id" ColumnName="account_id" />
+          <ScalarProperty Name="room_number" ColumnName="room_number" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="accounts">
+      <EntityTypeMapping TypeName="PaKModel.accounts">
+        <MappingFragment StoreEntitySet="accounts">
+          <ScalarProperty Name="act_gender" ColumnName="act_gender" />
+          <ScalarProperty Name="act_balance" ColumnName="act_balance" />
+          <ScalarProperty Name="act_notes" ColumnName="act_notes" />
+          <ScalarProperty Name="act_email" ColumnName="act_email" />
+          <ScalarProperty Name="act_phone" ColumnName="act_phone" />
+          <ScalarProperty Name="act_active" ColumnName="act_active" />
+          <ScalarProperty Name="tariff_id" ColumnName="tariff_id" />
+          <ScalarProperty Name="act_deposit" ColumnName="act_deposit" />
+          <ScalarProperty Name="room_id" ColumnName="room_id" />
+          <ScalarProperty Name="ast_id" ColumnName="ast_id" />
+          <ScalarProperty Name="act_city" ColumnName="act_city" />
+          <ScalarProperty Name="act_zip" ColumnName="act_zip" />
+          <ScalarProperty Name="act_address" ColumnName="act_address" />
+          <ScalarProperty Name="act_passport_id" ColumnName="act_passport_id" />
+          <ScalarProperty Name="act_birthplace" ColumnName="act_birthplace" />
+          <ScalarProperty Name="act_birthday" ColumnName="act_birthday" />
+          <ScalarProperty Name="nation_id" ColumnName="nation_id" />
+          <ScalarProperty Name="act_pseudonym" ColumnName="act_pseudonym" />
+          <ScalarProperty Name="act_firstname" ColumnName="act_firstname" />
+          <ScalarProperty Name="act_lastname" ColumnName="act_lastname" />
+          <ScalarProperty Name="act_id" ColumnName="act_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="rental_tariffs">
+      <EntityTypeMapping TypeName="PaKModel.rental_tariffs">
+        <MappingFragment StoreEntitySet="rental_tariffs">
+          <ScalarProperty Name="tar_order" ColumnName="tar_order" />
+          <ScalarProperty Name="tar_tax" ColumnName="tar_tax" />
+          <ScalarProperty Name="tar_mod_date" ColumnName="tar_mod_date" />
+          <ScalarProperty Name="tar_crea_date" ColumnName="tar_crea_date" />
+          <ScalarProperty Name="tar_amount" ColumnName="tar_amount" />
+          <ScalarProperty Name="tar_name" ColumnName="tar_name" />
+          <ScalarProperty Name="tariff_id" ColumnName="tariff_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="articles">
+      <EntityTypeMapping TypeName="PaKModel.articles">
+        <MappingFragment StoreEntitySet="articles">
+          <ScalarProperty Name="pgr_id" ColumnName="pgr_id" />
+          <ScalarProperty Name="art_name" ColumnName="art_name" />
+          <ScalarProperty Name="art_id" ColumnName="art_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="c_art_pricetype">
+      <EntityTypeMapping TypeName="PaKModel.c_art_pricetype">
+        <MappingFragment StoreEntitySet="c_art_pricetype">
+          <ScalarProperty Name="apt_price" ColumnName="apt_price" />
+          <ScalarProperty Name="ptp_id" ColumnName="ptp_id" />
+          <ScalarProperty Name="art_id" ColumnName="art_id" />
+          <ScalarProperty Name="apt_id" ColumnName="apt_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="price_type">
+      <EntityTypeMapping TypeName="PaKModel.price_type">
+        <MappingFragment StoreEntitySet="price_type">
+          <ScalarProperty Name="ptp_key" ColumnName="ptp_key" />
+          <ScalarProperty Name="ptp_name" ColumnName="ptp_name" />
+          <ScalarProperty Name="ptp_id" ColumnName="ptp_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="prod_grp">
+      <EntityTypeMapping TypeName="PaKModel.prod_grp">
+        <MappingFragment StoreEntitySet="prod_grp">
+          <ScalarProperty Name="pgr_name" ColumnName="pgr_name" />
+          <ScalarProperty Name="pgr_id" ColumnName="pgr_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="block_list">
+      <EntityTypeMapping TypeName="PaKModel.block_list">
+        <MappingFragment StoreEntitySet="block_list">
+          <ScalarProperty Name="daily_bill" ColumnName="daily_bill" />
+          <ScalarProperty Name="credit" ColumnName="credit" />
+          <ScalarProperty Name="block" ColumnName="block" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="room_number" ColumnName="room_number" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="bookings">
+      <EntityTypeMapping TypeName="PaKModel.bookings">
+        <MappingFragment StoreEntitySet="bookings">
+          <ScalarProperty Name="tax_relevant" ColumnName="tax_relevant" />
+          <ScalarProperty Name="bkg_comment" ColumnName="bkg_comment" />
+          <ScalarProperty Name="day_id" ColumnName="day_id" />
+          <ScalarProperty Name="tariff_id" ColumnName="tariff_id" />
+          <ScalarProperty Name="art_id" ColumnName="art_id" />
+          <ScalarProperty Name="room_id" ColumnName="room_id" />
+          <ScalarProperty Name="clr_id" ColumnName="clr_id" />
+          <ScalarProperty Name="usr_id" ColumnName="usr_id" />
+          <ScalarProperty Name="bkg_amount" ColumnName="bkg_amount" />
+          <ScalarProperty Name="btp_id" ColumnName="btp_id" />
+          <ScalarProperty Name="act_id" ColumnName="act_id" />
+          <ScalarProperty Name="bkg_date" ColumnName="bkg_date" />
+          <ScalarProperty Name="bkg_id" ColumnName="bkg_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="acct_bookings">
+      <EntityTypeMapping TypeName="PaKModel.acct_bookings">
+        <MappingFragment StoreEntitySet="acct_bookings">
+          <ScalarProperty Name="tax_relevant" ColumnName="tax_relevant" />
+          <ScalarProperty Name="room_number" ColumnName="room_number" />
+          <ScalarProperty Name="day_id" ColumnName="day_id" />
+          <ScalarProperty Name="tariff_id" ColumnName="tariff_id" />
+          <ScalarProperty Name="ast_key" ColumnName="ast_key" />
+          <ScalarProperty Name="type_key" ColumnName="type_key" />
+          <ScalarProperty Name="act_passport_id" ColumnName="act_passport_id" />
+          <ScalarProperty Name="iso_2" ColumnName="iso_2" />
+          <ScalarProperty Name="act_birthplace" ColumnName="act_birthplace" />
+          <ScalarProperty Name="act_birthday" ColumnName="act_birthday" />
+          <ScalarProperty Name="act_pseudonym" ColumnName="act_pseudonym" />
+          <ScalarProperty Name="act_firstname" ColumnName="act_firstname" />
+          <ScalarProperty Name="act_lastname" ColumnName="act_lastname" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="birthdays">
+      <EntityTypeMapping TypeName="PaKModel.birthdays">
+        <MappingFragment StoreEntitySet="birthdays">
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="room_number" ColumnName="room_number" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="birthday" ColumnName="birthday" />
+          <ScalarProperty Name="bday" ColumnName="bday" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="revenues">
+      <EntityTypeMapping TypeName="PaKModel.revenues">
+        <MappingFragment StoreEntitySet="revenues">
+          <ScalarProperty Name="pgr_id" ColumnName="pgr_id" />
+          <ScalarProperty Name="art_id" ColumnName="art_id" />
+          <ScalarProperty Name="pgr_name" ColumnName="pgr_name" />
+          <ScalarProperty Name="art_name" ColumnName="art_name" />
+          <ScalarProperty Name="btp_id" ColumnName="btp_id" />
+          <ScalarProperty Name="bkg_amount" ColumnName="bkg_amount" />
+          <ScalarProperty Name="bkg_date" ColumnName="bkg_date" />
+          <ScalarProperty Name="bkg_id" ColumnName="bkg_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

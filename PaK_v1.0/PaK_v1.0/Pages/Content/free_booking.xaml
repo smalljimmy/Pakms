@@ -1,0 +1,150 @@
+﻿<UserControl x:Class="PaK_v1._0.Pages.Content.free_booking"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mui="http://firstfloorsoftware.com/ModernUI"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
+             xmlns:appvm="clr-namespace:PaK_v1._0.ViewModels"
+             xmlns:utilities="clr-namespace:PaK_v1._0.utilities"
+             mc:Ignorable="d" 
+             d:DesignHeight="800" d:DesignWidth="1050">
+
+    <UserControl.Resources>
+
+        <BooleanToVisibilityConverter x:Key="booleanToVisibilityConverter"/>
+        <utilities:Bool2VisibleConverter x:Key="b2VConverter"/>
+        <utilities:BooleanToStringConverter x:Key="booleanToStringConverter"/>
+        <utilities:NotConverter x:Key="notConverter"/>
+
+    </UserControl.Resources>
+
+    <Grid Style="{StaticResource ContentRoot}" >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="380" x:Name="gridcol1"/>
+            <ColumnDefinition Width="1"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="0.5*" MinHeight="35"/>
+        </Grid.RowDefinitions>
+
+        <GridSplitter Width="1"  Grid.Column="1" Grid.RowSpan="2"/>
+        <Border Margin="5,0,5,0" VerticalAlignment="Stretch" Height="Auto" Grid.Column="0" Grid.RowSpan="2" BorderThickness="0.5,0.5,0.5,0.5">
+            <DockPanel x:Name="dp1" Width="Auto" Height="Auto" LastChildFill="True">
+                <StackPanel Orientation="Horizontal" DockPanel.Dock="Top">
+                    <TextBox Name="searchBox" BorderThickness="0.7" HorizontalAlignment="Left" MinWidth="230" MinHeight="25" Foreground="Gray" Text="{Binding ST, Mode=TwoWay}" ToolTip="Search Person" FontWeight="Normal" HorizontalContentAlignment="Stretch" VerticalAlignment="Top">
+                        <i:Interaction.Behaviors>
+                            <utilities:KeyUpWithArgs KeyUpCommand="{Binding SearchCommand}" />
+                        </i:Interaction.Behaviors>
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="GotFocus">
+                                <i:InvokeCommandAction Command="{Binding Commands.emptybox}" CommandParameter="{Binding ElementName=searchBox}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+
+                    </TextBox>
+                    <mui:ModernButton IconData="{StaticResource LupeIconData}" EllipseDiameter="20" IconWidth="14" IconHeight="14" Background="White" IsEnabled="False"/>
+                </StackPanel>
+                <ListView Name="PersListView" ItemsSource="{Binding accountsView}"  SelectedItem="{Binding SelectedAccount, Mode=TwoWay}" Margin="-20,10,0,0">
+                    <!-- SelectedIndex="0" / itemsource , Mode=TwoWay-->
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Margin="0,10,0,0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="220"/>
+                                    <ColumnDefinition Width="75"/>
+                                    <ColumnDefinition Width="60"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+
+                                <StackPanel Grid.Column="0" Orientation="Horizontal" TextBlock.FontSize="20" >
+                                    <TextBlock Text="{Binding Path=act_pseudonym}" />
+                                </StackPanel>
+                                <StackPanel Grid.Column="1" Orientation="Horizontal" >
+                                    <TextBlock Text="Zimmer:" VerticalAlignment="Bottom"/>
+                                </StackPanel>
+                                <StackPanel Grid.Column="2" HorizontalAlignment="Right" Orientation="Horizontal" >
+                                    <TextBlock Text="{Binding Path=rooms.room_number}" VerticalAlignment="Bottom"/>
+                                </StackPanel>
+                                <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Horizontal">
+                                    <TextBlock Text="{Binding Path=act_firstname}" />
+                                    <TextBlock Text=" " />
+                                    <TextBlock Text="{Binding Path=act_lastname}" />
+                                </StackPanel>
+                                <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal">
+                                    <TextBlock Text="Kontostand:" />
+                                </StackPanel>
+                                <StackPanel Grid.Row="1" Grid.Column="2" HorizontalAlignment="Right" Orientation="Horizontal">
+                                    <TextBlock Text="{Binding Path=act_balance}" />
+                                </StackPanel>
+                            </Grid>
+
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </DockPanel>
+        </Border>
+        <Border VerticalAlignment="Stretch" Height="Auto" Grid.Column="2" Grid.RowSpan="2" >
+            <DockPanel x:Name="acct_hdr" Grid.Column="2" Width="Auto" Height="Auto" LastChildFill="True">
+                <Grid Margin="10,10,10,10" Height="Auto" VerticalAlignment="Top" DockPanel.Dock="Top">
+                    <StackPanel Orientation="Vertical" >
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock HorizontalAlignment="Left">
+                                <Run Text="{Binding SelectedAccount.act_pseudonym}" FontSize="20"/>
+                            </TextBlock>
+                        </StackPanel>
+                        <StackPanel>
+                            <TextBlock HorizontalAlignment="Left">
+                                    <Run Text="Konto: " FontSize="18" />
+                                    <Run Text="{Binding SelectedAccount.act_id}" FontSize="18" />
+                                    <Run Text="        " />
+                                    <Run Text="{Binding SelectedAccount.act_firstname}" FontSize="18" />
+                                    <Run Text=" " FontWeight="Bold" />
+                                    <Run Text="{Binding SelectedAccount.act_lastname}" FontSize="18" />
+                            </TextBlock>
+                        </StackPanel>
+                    </StackPanel>
+                </Grid>
+                <Grid Margin="10,10,10,10" Background="Transparent" >
+                    <StackPanel Orientation="Vertical" >
+                        <StackPanel.Resources>
+                            <Style TargetType="StackPanel">
+                                <Setter Property="Orientation" Value="Horizontal" />
+                                <Setter Property="Margin" Value="0,0,0,4" />
+                            </Style>
+                            <Style TargetType="Label" BasedOn="{StaticResource {x:Type Label}}">
+                                <Setter Property="Width" Value="150" />
+                                <Setter Property="VerticalAlignment" Value="Center" />
+                            </Style>
+                        </StackPanel.Resources>
+                        <StackPanel>
+                            <Label Content="Kontostand (EUR)" />
+                            <TextBlock Height="23" HorizontalAlignment="Right" Text="{Binding SelectedAccount.act_balance, Mode=TwoWay}" VerticalAlignment="Top" Width="150" />
+                        </StackPanel>
+                        <StackPanel>
+                            <Label Content="Betrag (EUR)" />
+                            <TextBox Width="150" Text="{Binding Amount, Mode=TwoWay}" />
+                        </StackPanel>
+                        <StackPanel>
+                            <Label Content="Zweck" />
+                            <TextBox Width="350" Text="{Binding Comment, Mode=TwoWay}" />
+                        </StackPanel>
+                        <StackPanel>
+                            <TextBlock Height="23" HorizontalAlignment="Left" x:Name ="errormessage" Text="{Binding Status}" VerticalAlignment="Top" Width="450"   Foreground="{Binding FgColor}"  />
+                        </StackPanel>
+                        <mui:ModernButton Name="btnSave" IconData="{StaticResource DiskIconData}" Command="{Binding Path=Commands.save}" EllipseDiameter="26" IconWidth="14" IconHeight="14" HorizontalAlignment="Left" ToolTip="Speichern" />
+                    </StackPanel>
+
+                </Grid>
+            </DockPanel>
+        </Border>
+    </Grid>
+</UserControl>

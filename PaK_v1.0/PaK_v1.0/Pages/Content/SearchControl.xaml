@@ -1,0 +1,33 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+ 	x:Class="PaK_v1._0.Content.SearchControl"
+    xmlns:mui="http://firstfloorsoftware.com/ModernUI"
+	>
+
+
+
+    <StackPanel Margin="0,0,0,5" VerticalAlignment="Top" Background="{x:Null}" MinHeight="30">
+
+        <StackPanel.Resources>
+
+            <Style TargetType="Label" BasedOn="{StaticResource {x:Type Label}}">
+                <Setter Property="Width" Value="150" />
+                <Setter Property="VerticalAlignment" Value="Center" />
+            </Style>
+            <Style TargetType="TextBox" BasedOn="{StaticResource {x:Type TextBox}}">
+                <Setter Property="Padding" Value="0,3" />
+            </Style>
+            <PathGeometry x:Key="LupeIconData">F1 M 42.5,22C 49.4036,22 55,27.5964 55,34.5C 55,41.4036 49.4036,47 42.5,47C 40.1356,47 37.9245,46.3435 36,45.2426L 26.9749,54.2678C 25.8033,55.4393 23.9038,55.4393 22.7322,54.2678C 21.5607,53.0962 21.5607,51.1967 22.7322,50.0251L 31.7971,40.961C 30.6565,39.0755 30,36.8644 30,34.5C 30,27.5964 35.5964,22 42.5,22 Z M 42.5,26C 37.8056,26 34,29.8056 34,34.5C 34,39.1944 37.8056,43 42.5,43C 47.1944,43 51,39.1944 51,34.5C 51,29.8056 47.1944,26 42.5,26 Z</PathGeometry>
+        </StackPanel.Resources>
+
+        <!-- Image VMBase.Dock="Left" Margin="4,0,0,0" Width="16" Height="16" Stretch="Fill" Source="graphics\inbox.gif" HorizontalAlignment="Left"/ -->
+        <!-- Label StackPanel.Dock="Left" FontWeight="Bold" HorizontalAlignment="Left" Content="Person"/ -->
+
+        <StackPanel Orientation="Horizontal">
+            <TextBox  BorderThickness="0.7" HorizontalAlignment="Left" MinWidth="230" MinHeight="25" Foreground="Gray" Text="Suchtext eingeben" ToolTip="Search Person" KeyUp="OnKeyUp" FontWeight="Normal" HorizontalContentAlignment="Stretch" x:Name="SearchTextBox" VerticalAlignment="Top" GotFocus="OnGotFocus"/>
+            <mui:ModernButton IconData="{StaticResource LupeIconData}" EllipseDiameter="26" IconWidth="14" IconHeight="14"/>
+        </StackPanel>
+    </StackPanel>
+    
+</UserControl>

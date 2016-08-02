@@ -1,0 +1,25 @@
+﻿<UserControl x:Class="PaK_v1._0.Pages.bookings"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mui="http://firstfloorsoftware.com/ModernUI"
+             mc:Ignorable="d" 
+             d:DesignHeight="800" d:DesignWidth="600">
+
+    <Grid Name="gridTab" Style="{StaticResource ContentRoot}">
+        <mui:ModernTab SelectedSource="{Binding SelSrc}" Layout="List" Links="{Binding MenuLinks}"></mui:ModernTab>
+
+        <!-- mui:ModernTab Layout="List" SelectedSource="{Binding SelectedSource, Mode=TwoWay}">
+            <mui:ModernTab.Links>
+                <mui:Link DisplayName="alle" Source="/Pages/Content/booking_list.xaml#1" />
+                <mui:Link DisplayName="tagessummen" Source="/Pages/Content/booking_list.xaml#2" />
+                <mui:Link DisplayName="bar einzahlung" Source="/Pages/Content/cash_booking.xaml" />
+                <mui:Link DisplayName="artikel buchung" Source="/Pages/Content/new_booking.xaml" />
+                <mui:Link DisplayName="zimmer buchung" Source="/Pages/Content/room_booking.xaml" />
+                <mui:Link DisplayName="freie buchung" Source="/Pages/Content/free_booking.xaml" />
+            </mui:ModernTab.Links>
+        </mui:ModernTab -->
+
+    </Grid>
+</UserControl>

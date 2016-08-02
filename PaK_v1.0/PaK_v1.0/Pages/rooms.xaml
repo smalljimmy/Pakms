@@ -1,0 +1,27 @@
+﻿<UserControl x:Class="PaK_v1._0.Pages.rooms"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:appvm="clr-namespace:PaK_v1._0.ViewModels"
+             xmlns:mui="http://firstfloorsoftware.com/ModernUI"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+   
+    <Grid Name="gridTab" Style="{StaticResource ContentRoot}">
+        <mui:ModernTab SelectedSource="{Binding SelSrc}" Layout="List" Links="{Binding MenuLinks}">
+        </mui:ModernTab>
+        <!-- mui:ModernTab Layout="List" SelectedSource="{Binding SelectedSource, Mode=TwoWay}">
+            <mui:ModernTab.Links>
+                <mui:Link DisplayName="frei regulär" Source="/Pages/Content/roomlist.xaml#1" />
+                <mui:Link DisplayName="frei hotel" Source="/Pages/Content/roomlist.xaml#2" />
+                <mui:Link DisplayName="belegt regulär" Source="/Pages/Content/roomlist.xaml#6" />
+                <mui:Link DisplayName="belegt hotel" Source="/Pages/Content/roomlist.xaml#7" />
+                <mui:Link DisplayName="alle regulär" Source="/Pages/Content/roomlist.xaml#3" />
+                <mui:Link DisplayName="alle hotel" Source="/Pages/Content/roomlist.xaml#4" />
+                <mui:Link DisplayName="inaktive" Source="/Pages/Content/roomlist.xaml#5" />
+                <mui:Link DisplayName="neues zimmer" Source="/Pages/Content/new_room.xaml" />
+            </mui:ModernTab.Links>
+        </mui:ModernTab -->
+    </Grid>
+</UserControl>
